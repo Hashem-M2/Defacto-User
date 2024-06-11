@@ -1,0 +1,572 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using System.Globalization
+@inject IViewLocalizer Localizer
+@{
+
+    string url = Context.Request.Path;
+    if (url == "/")
+    {
+        url = "/home/index";
+    }
+
+    var lan = "";
+    var direction = "";
+   
+
+    if (CultureInfo.CurrentCulture.Name.StartsWith("ar"))
+    {
+        lan = "ar";
+        direction = "rtl";
+    }
+    else
+    {
+        lan = "en";
+        direction = "ltr";
+    }
+
+}
+<div class="sideMenu loaded sideMenu--open" id="section__user">
+    <div class="sideMenu__header">
+        <h5 class="sideMenu__title sideMenu__title--default">@Localizer["Login_partial"]</h5>
+        <button type="button"
+                class="button-reset guest__action--back d-none">
+            <h5 class="sideMenu__title"><i class="icon-arrow-left guest__action--back"></i> @Localizer["ContinueAsGuest"]</h5>
+        </button>
+        <button type="button" class="button-reset sideMenu__header-close" onclick="closeform()">
+            <i  class="fa fa-times" aria-hidden="true"></i>
+        </button>
+    </div>
+    <div class="sideMenu__container scrollbars">
+        <div class="login">
+            <div class="login-form" >
+                <div class="guest__action d-none">
+                    If you want, you can register at the end of the order and save
+                    your information for future purchases. <i class="icon-arrow-right"></i>
+                </div>
+                <div class="login-form__tabs">
+                    <ul class="tab">
+                        <li class="tab__item" id="log-Form"  onclick="showlogin()" data-login-tab="login-form">
+                            <a style="text-decoration:none" href="#">@Localizer["SiGnin"]</a>
+                            </li>
+                        <li class="tab__item active" id="reg-Form" onclick="showRegister()" data-login-tab="register-form">
+                            <a style="text-decoration:none" href="#"> @Localizer["SiGnup"]</a>
+                            </li>
+                    </ul>
+                </div>
+                <form id="login-form" class="form form--scroll" action="/Account/login">
+                    <input type="hidden" name="returnUrl" value="@url" />
+                    <div class="form-group form-group--select">
+                        <div class="custom-radio">
+                            <input id="CustomerLoginEmail" type="radio"
+                                   name="CustomerLoginType" checked=""> <label for="CustomerLoginEmail">@Localizer["E-mail"]</label>
+                        </div>
+
+                    </div><input type="hidden" name="LoginModel.isPhoneLogin" value="false">
+                    
+                    <div class="form-group form-group--email">
+                        <div class="custom-input">
+                            <input autocomplete="off" data-type="email" id="Email-"
+                                   name="Email" required="" required-message="Please enter e-mail address."
+                                   validate-message="Please enter a valid e-mail address." class="has-value"> <label style="width:100px" for="Email">@Localizer["E-mail Address"]</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-input">
+                            <input autocomplete="off" data-type="passwordold"
+                                   id="password-"
+                                   min-message="Your password must be between 6 and 10 characters."
+                                   name="password" required=""
+                                   required-message="Your password must be between 6 and 10 characters."
+                                   type="password" validate-message="Please enter your password." class="has-value">
+                            <label for="password">@Localizer["Password"]</label>
+                            <div class="show-password"><i class="icon icon-eye-open"></i></div>
+                        </div>
+                    </div>
+                    <div class="form-row form-row__section justify-content-between align-items-center">
+                        <div class="form-group col-md-6 mb-0 form-group--checkbox">
+                            <div class="custom-checkbox mb-0">
+                                <input checked="" data-type="checkbox" id="rememberMe" name="rememberMe" type="checkbox" value="true">
+                                <label for="rememberMe">@Localizer["Remember me"] </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 mb-0 login-form__forgot-link">
+                            <a href="#">
+                                @Localizer["Forgot Password"]
+                            </a>
+                        </div>
+                    </div>
+                    <div class="form-group form-group--recaptcha">
+                        <div class="col-12"></div>
+                    </div>
+                    <div class="form-group">
+                        <button class="button button--fluid button--big" id="LoginBtn" type="submit">
+                            @Localizer["SIGN IN"]
+                        </button>
+                    </div>
+                    <div class="guest__action--continue">
+                        <button type="button"
+                                class="guest__action--continue--btn button-reset">
+                            @Localizer["Continue as guest"]
+                        </button>
+                    </div>
+                    <div class="social-row">
+                        <div class="login-form__sub-title">@Localizer["LOG IN WITH SOCIAL ACCOUNT"]</div>
+                        <div class="form-row form-row__section form-row__section--first">
+                            <div class="form-group">
+                                <a class="button login-form__button facebook-button"
+                                   href="/en-eg/Login/FacebookLogin?returnurl=%2Fen-eg%2Flogin%2Fregister">
+                                    <span class="facebook-button-icon"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="login-form__badge">
+                        @Localizer["NOT A MEMBER? JOIN"]<a href="javascript:"
+                                              data-login-tab="register-form" class="active"> @Localizer["NOW"] </a>
+                    </div>
+                 </form>
+                <div class="modal forgot-password modal-mobile-right modal--lg" id="ForgotPassword">
+                    <div class="modal__inner scrollbars">
+                        <div class="modal__header">
+                            <div class="modal__title">Forgot Password</div><button type="button"
+                                                                                   class="button-reset modal__header-close">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="modal__container">
+                            <form id="forgot-password" method="POST" class="form" novalidate="novalidate">
+                                <div class="forgot-password__step-1">
+                                    <p>
+                                        @Localizer["You can reset your password using your registered e-mail address or phone number."]
+                                    </p>
+                                    <div class="form-group form-group--select">
+                                        <div class="custom-radio">
+                                            <input id="CustomerEmail" type="radio"
+                                                   name="CustomerForgotPassType" checked=""> <label for="CustomerEmail"> @Localizer["E--mail"]</label>
+                                        </div>
+                                  
+                                    </div>
+                                  
+                                    <div class="form-group forgotPassCustomerEmail">
+                                        <div class="custom-input">
+                                            <input id="ForgotPassword_Email"
+                                                   name="ForgotPassword.Email" data-type="email" autocomplete="off"
+                                                   required-message="Please enter e-mail address." required=""
+                                                   validate-message="Please enter a valid e-mail address"> <label for="ForgotPassword_Email">@Localizer["E-mail Address-"]</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="forgot-password__step-2" style="display:none">
+                                    <div class="forgot-password__success">
+                                        <div class="forgot-password__success--content">
+                                            <p class="forgot-password__success--message">
+                                                <i class="icon-check-circle"></i> <span></span>
+                                            </p><a href="javascript:" class="forgot-password__reset-link">
+                                                Farklı
+                                                E-Posta Adresine Şifre Gönder
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <p>Didn't get an e-mail?</p>
+                                    <div class="alert-box alert-box--error alert-box--static">
+                                        <i class="icon-attention"></i>
+                                        <div class="alert-box--item-container">
+                                            <p class="alert-box--item">
+                                                <span>@Localizer["Please check your email address."]</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group form-group--action">
+                                    <button class="button button--fluid button--big" id="ForgotPasswordBtn">
+                                        @Localizer["Send Password"]
+                                    </button>
+                                </div><input name="__RequestVerificationToken"
+                                             type="hidden"
+                                             value="CfDJ8N2leE7X671OhEEvumGJ6j4FVbd96ozMGLlV8aJ5k8seqOqPlwxINamr63uPrvmAZA-mMVLmj8q8-kYBum7EQDkOKVAAcAc8E04AFGIKGReKDhvZTYqgw-j4ntQwwiHMjT2F_-yWkkJnaM6o54N8CqM">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <form id="register-form" action="/Account/Register" class="form form--scroll active">
+
+                   
+                    <input type="hidden" name="returnUrl" value="@url" />
+                    <div class="social-row">
+                        <div class="login-form__sub-title">@Localizer["LOG IN WITH SOCIAL ACCOUNT-"]</div>
+                        <div class="form-row form-row__section form-row__section--first">
+                            <div class="form-group">
+                                <a class="button login-form__button facebook-button"
+                                   href="/en-eg/Login/FacebookLogin?returnurl=%2Fen-eg%2Flogin%2Fregister">
+                                    <span class="facebook-button-icon"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="login-form__sub-title">@Localizer["SUBSCRIBE WITH YOUR EMAIL ADDRESS"]</div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <div class="custom-input">
+                                <input autocomplete="off" class="name-input" data-type="text"
+                                       id="firstName"
+                                       
+                                       maxlength="30" min-message="@Localizer["Your name must be at least 2 characters"]"
+                                       minlength="2" name="firstName" required=""
+                                       required-message="@Localizer["Please enter your name."]"> <label for="firstName">@Localizer["Name"]</label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="custom-input">
+                                <input autocomplete="off" class="name-input" data-type="text"
+                                       id="lastName"
+                                       max-message="nw.cl.FormValidation.Login.FormRegister.Messages.RegisterModel.CustomerLastName.MaxMessage"
+                                       maxlength="30" min-message="@Localizer["Your surname must be at least 2 characters"]"
+                                       minlength="2" name="lastName" required=""
+                                       required-message="Please enter your last name."> <label for="lastName">@Localizer["Last Name"]</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-input">
+                            <input autocomplete="off" data-type="email"
+                                   id="Email" name="Email" required=""
+                                   required-message="E-mail Address" validate-message="@Localizer["Please check your email address"]"
+                                   class="has-value"> <label for="Email">@Localizer["E-mail Address--"]</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <div class="custom-input">
+                                <input autocomplete="off" class="name-input" data-type="text"
+                                       id="StreetAddress" name="StreetAddress" required=""
+                                       maxlength="30" min-message="Your name must be at least 2 characters"
+                                       minlength="2"  required=""
+                                       required-message="Please enter your Street"> <label for="StreetAddress">@Localizer["Street"]</label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="custom-input">
+                                <input autocomplete="off" class="name-input" data-type="text"
+                                       id="City" name="City" required=""
+                                       maxlength="30" min-message="Your surname must be at least 2 characters"
+                                       minlength="2"
+                                       required-message="Please enter your last name."> <label for="City">@Localizer["City"]</label>
+                            </div>
+                        </div> 
+                        <div class="form-group col-md-4">
+                            <div class="custom-input">
+                                <input autocomplete="off" class="name-input" data-type="text"
+                                       id="Country" name="Country" required=""
+                                       maxlength="30" min-message="Your surname must be at least 2 characters"
+                                       minlength="2"
+                                       required-message="Please enter your last name."> <label for="Country">@Localizer["Country"]</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-input">
+                            <input data-type="password" id="password"
+                                   name="password" required="" autocomplete="off
+                                   required-message="Please enter your password." type="@Localizer["password--"]"
+                                   validate-message="@Localizer["Your password must be in the range of 8-15 characters and contain numbers, uppercase and lowercase letters."]"
+                                   class="has-value"> <label for="password">Password</label>
+                            <div class="show-password"><i class="icon icon-eye-open"></i></div>
+                        </div>
+                    </div>
+                    <div class="login-form__sub-title">Date of Birth</div>
+                    <div class="form-group form-group--select">
+                        <div class="form-group__date-select">
+                            <div class="form-group__date-select--title">@Localizer["Day"]</div><select name="RegisterModel.CustomerBirthDateDay" id="CustomerModel_CustomerBirthDateDay"
+                                                                                         class="custom-select">
+                                <option value="">@Localizer["Day="]</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                        </div>
+                        <div class="form-group__date-select">
+                            <div class="form-group__date-select--title">@Localizer["Month"]</div><select name="RegisterModel.CustomerBirthDateMonth"
+                                                                                           id="CustomerModel_CustomerBirthDateMonth" class="custom-select">
+                                <option value="">@Localizer["Month="]</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </div>
+                        <div class="form-group__date-select">
+                            <div class="form-group__date-select--title">@Localizer["Year-"]</div><select name="RegisterModel.CustomerBirthDateYear" id="CustomerModel_CustomerBirthDateYear"
+                                                                                          class="custom-select">
+                                <option value="">@Localizer["Year"]</option>
+                                <option value="2007">2007</option>
+                                <option value="2006">2006</option>
+                                <option value="2005">2005</option>
+                                <option value="2004">2004</option>
+                                <option value="2003">2003</option>
+                                <option value="2002">2002</option>
+                                <option value="2001">2001</option>
+                                <option value="2000">2000</option>
+                                <option value="1999">1999</option>
+                                <option value="1998">1998</option>
+                                <option value="1997">1997</option>
+                                <option value="1996">1996</option>
+                                <option value="1995">1995</option>
+                                <option value="1994">1994</option>
+                                <option value="1993">1993</option>
+                                <option value="1992">1992</option>
+                                <option value="1991">1991</option>
+                                <option value="1990">1990</option>
+                                <option value="1989">1989</option>
+                                <option value="1988">1988</option>
+                                <option value="1987">1987</option>
+                                <option value="1986">1986</option>
+                                <option value="1985">1985</option>
+                                <option value="1984">1984</option>
+                                <option value="1983">1983</option>
+                                <option value="1982">1982</option>
+                                <option value="1981">1981</option>
+                                <option value="1980">1980</option>
+                                <option value="1979">1979</option>
+                                <option value="1978">1978</option>
+                                <option value="1977">1977</option>
+                                <option value="1976">1976</option>
+                                <option value="1975">1975</option>
+                                <option value="1974">1974</option>
+                                <option value="1973">1973</option>
+                                <option value="1972">1972</option>
+                                <option value="1971">1971</option>
+                                <option value="1970">1970</option>
+                                <option value="1969">1969</option>
+                                <option value="1968">1968</option>
+                                <option value="1967">1967</option>
+                                <option value="1966">1966</option>
+                                <option value="1965">1965</option>
+                                <option value="1964">1964</option>
+                                <option value="1963">1963</option>
+                                <option value="1962">1962</option>
+                                <option value="1961">1961</option>
+                                <option value="1960">1960</option>
+                                <option value="1959">1959</option>
+                                <option value="1958">1958</option>
+                                <option value="1957">1957</option>
+                                <option value="1956">1956</option>
+                                <option value="1955">1955</option>
+                                <option value="1954">1954</option>
+                                <option value="1953">1953</option>
+                                <option value="1952">1952</option>
+                                <option value="1951">1951</option>
+                                <option value="1950">1950</option>
+                                <option value="1949">1949</option>
+                                <option value="1948">1948</option>
+                                <option value="1947">1947</option>
+                                <option value="1946">1946</option>
+                                <option value="1945">1945</option>
+                                <option value="1944">1944</option>
+                                <option value="1943">1943</option>
+                                <option value="1942">1942</option>
+                                <option value="1941">1941</option>
+                                <option value="1940">1940</option>
+                                <option value="1939">1939</option>
+                                <option value="1938">1938</option>
+                                <option value="1937">1937</option>
+                                <option value="1936">1936</option>
+                                <option value="1935">1935</option>
+                                <option value="1934">1934</option>
+                                <option value="1933">1933</option>
+                                <option value="1932">1932</option>
+                                <option value="1931">1931</option>
+                                <option value="1930">1930</option>
+                                <option value="1929">1929</option>
+                                <option value="1928">1928</option>
+                                <option value="1927">1927</option>
+                                <option value="1926">1926</option>
+                                <option value="1925">1925</option>
+                                <option value="1924">1924</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="login-form__sub-title login-form__sub-title--gender">Gender</div>
+                    <div class="form-group form-group--select">
+                        <div class="custom-radio">
+                            <input id="CustomerGenderFemale" type="radio"
+                                   name="RegisterModel.Gender" value="4d43ccce-b592-41da-b0b9-d5cabcb8b7ca"> <label for="CustomerGenderFemale">@Localizer["Female"]</label>
+                        </div>
+                        <div class="custom-radio">
+                            <input id="CustomerGenderMale" type="radio"
+                                   name="RegisterModel.Gender" value="b55e2ad0-62fb-4985-9294-36f598797dc1"> <label for="CustomerGenderMale">@Localizer["Male"]</label>
+                        </div>
+                        <div class="custom-radio">
+                            <input id="CustomerGenderNotSet" type="radio"
+                                   name="RegisterModel.Gender" value="4cb51b5f-d8c6-4fa0-aa4b-d3366a2afe45" checked="">
+                            <label for="CustomerGenderNotSet">@Localizer["I do not want to specify"]</label>
+                        </div>
+                    </div>
+                    <div class="form-group form-group--checkbox">
+                        <div class="custom-checkbox">
+                            <input type="checkbox"
+                                   name="RegisterModel.CustomerIsSubscriber" id="RegisterModel_CustomerIsSubscriber"
+                                   data-type="checkbox"
+                                   required-message="Site.FormValidation.Login.FormRegister.Messages.RegisterModel.CustomerIsSubscriber.Required">
+                            <label for="RegisterModel_CustomerIsSubscriber">
+                                @Localizer["I would like to sign up for the Defacto newsletter, receive Defacto survey inquiries and accept to receive E-Mails /SMS/calls for marketing purposes. I can unsubscribe from the newsletter and survey inquiries at any time for the future, e.g. by clicking on the unsubscribe link or sending an e-mail to dataprotection@defacto.com."]
+                            </label>
+                        </div>
+                        <div class="custom-checkbox">
+                            <input type="checkbox"
+                                   name="RegisterModel.CustomerIsApprovedContract"
+                                   id="RegisterModel_CustomerIsApprovedContract" data-type="checkbox" required=""
+                                   required-message="Membership and Confidentiality Agreement cannot be left blank">
+                            <label for="RegisterModel_CustomerIsApprovedContract">
+                                @Localizer["I have read and understand the&nbsp;"]<a class="contract-link" data-target="#webSiteTermUse" data-toggle="modal"
+                                            href="javascript:void(0)"><u>@Localizer["Website Terms Use"]</u></a>@Localizer["and the&nbsp;"]<a class="contract-link" data-target="#privacyPolicy" data-toggle="modal"
+                                                                                                                   href="javascript:void(0)"><u>@Localizer["Privacy Policy"]</u></a>@Localizer["&nbsp;by clicking of the 'Register' button."]
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group form-group--recaptcha">
+                        <div class="col-12"></div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <button class="button button--fluid button--big"
+                                id="RegisterBtn" type="submit">
+                            @Localizer["Register__"]"
+                        </button>
+                    </div>
+                    <div class="form-group">
+                        <div class="login-form__kvkk">
+                            @Localizer["Your personal data; It will be processed by the data controller Defacto company. You can find detailed information from&nbsp;"]<a data-target="#memberDisclosureText" data-toggle="modal">
+                                <u>
+                                    @Localizer["Member Clarification Text"]
+                                    
+                                </u>
+                            </a> @Localizer["By clicking the “Sign Up” button you are deemed to have consented to the"]<u>
+                                <a data-target="#giftClubMembershipAgreement" data-toggle="modal">
+                                    @Localizer["DeFacto Gift Club Membership Agreement"]
+                                </a>
+                            </u> @Localizer["and the processing and transfer of your personal data abroad within the scope of the&nbsp;"] <a data-target="#explicitConsentText"
+                                                                                  data-toggle="modal"><u>@Localizer["Explicit Consent Text"]</u></a>
+                        </div>
+                    </div>
+                    <div class="guest__action--continue">
+                        <button type="button"
+                                class="guest__action--continue--btn button-reset">
+                            @Localizer["Continue as guest="]
+                        </button>
+                    </div>
+                    <div class="login-form__badge">
+                        @Localizer["ARE YOU ALREADY A MEMBER? LOG IN"] <a href="javascript:"
+                                                            data-login-tab="login-form"> @Localizer["NOW-"] </a>
+                    </div><input name="__RequestVerificationToken"
+                                 type="hidden"
+                                 value="CfDJ8N2leE7X671OhEEvumGJ6j4FVbd96ozMGLlV8aJ5k8seqOqPlwxINamr63uPrvmAZA-mMVLmj8q8-kYBum7EQDkOKVAAcAc8E04AFGIKGReKDhvZTYqgw-j4ntQwwiHMjT2F_-yWkkJnaM6o54N8CqM">
+                </form>
+                <div id="guest-container" class="guest">
+                    <form id="guest__form" method="POST" class="form form--scroll guest__form">
+                        <button type="button"
+                                class="button-reset guest__action--back guest__action--back-inline">
+                            <h5 class="sideMenu__title">
+                                <i class="icon-arrow-left guest__action--back"></i> Continue
+                                as guest
+                            </h5>
+                        </button>
+                        <p>
+                            If you want, you can register at the end of the order and save your information for
+                            future purchases.
+                        </p>
+                        <div class="form-group">
+                            <div class="custom-input">
+                                <input id="GuestRegisterModel_Email"
+                                       name="GuestRegisterModel.Email" data-type="email"
+                                       required-message="Enter your email address" required=""
+                                       validate-message="Please enter a valid e-mail address."> <label for="GuestRegisterModel_Email">E-mail Address</label>
+                            </div>
+                        </div>
+                        <div class="form-group form-group--checkbox">
+                            <div class="custom-checkbox">
+                                <input type="checkbox"
+                                       name="GuestRegisterModel.CustomerIsSubscriber"
+                                       id="GuestRegisterModel_CustomerIsSubscriber" data-type="checkbox"
+                                       required-message="Site.FormValidation.Login.FormGuest.Messages.GuestRegisterModel.CustomerIsSubscriber.Required">
+                                <label for="GuestRegisterModel_CustomerIsSubscriber">
+                                    @Localizer["I would like to sign up for the Defacto newsletter, receive Defacto survey inquiries and accept to receive E-Mails /SMS /calls for marketing purposes. I can unsubscribe from the newsletter and survey inquiries at any time for the future, e.g. by clicking on the unsubscribe link or sending an e-mail to dataprotection@defacto.com."]
+                                </label>
+                            </div>
+                            <div class="custom-checkbox">
+                                <input type="checkbox"
+                                       name="GuestRegisterModel.CustomerIsApprovedContract"
+                                       id="GuestRegisterModel_CustomerIsApprovedContract" data-type="checkbox"
+                                       required=""
+                                       required-message="Membership and Confidentiality Agreement cannot be left blank">
+                                <label for="GuestRegisterModel_CustomerIsApprovedContract">
+                                    I have read and
+                                    understand the&nbsp;<a class="contract-link" data-target="#webSiteTermUse"
+                                                           data-toggle="modal" href="javascript:void(0)"><u>Website Terms Use</u></a>
+                                    and the&nbsp;<a class="contract-link" data-target="#privacyPolicy"
+                                                    data-toggle="modal" href="javascript:void(0)">
+                                        <u>
+                                            Privacy
+                                            Policy
+                                        </u>
+                                    </a>&nbsp;by clicking of the "Register" button.
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="button button--fluid button--big guest__form-submit">
+                                Continue
+                            </button>
+                        </div><input name="__RequestVerificationToken" type="hidden"
+                                     value="CfDJ8N2leE7X671OhEEvumGJ6j4FVbd96ozMGLlV8aJ5k8seqOqPlwxINamr63uPrvmAZA-mMVLmj8q8-kYBum7EQDkOKVAAcAc8E04AFGIKGReKDhvZTYqgw-j4ntQwwiHMjT2F_-yWkkJnaM6o54N8CqM">
+                    </form>
+                </div><input id="ReturnUrl" name="ReturnUrl" type="hidden" value="/en-eg/login/register">
+            </div>
+            
+            <link href="//dfcdn.defacto.com.tr/AssetsV2/tr/cssV2/entry.login.css?v=20240402.13" rel="stylesheet">
+        </div>
+    </div>
+</div>
+
+ @if (direction == "rtl")
+{
+    <script src="~/js/logandreg_ar.js"></script>
+}
+else
+{
+    <script src="~/js/logandreg.js"></script>
+}

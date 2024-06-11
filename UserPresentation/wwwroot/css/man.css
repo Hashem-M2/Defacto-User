@@ -1,0 +1,20 @@
+﻿
+.icon-container {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.custom-font-size {
+    font-size: 16px; 
+}
+
+
+.custom-font-size-sm {
+    font-size: 12px; 
+}
+
+.custom-font-size-md {
+    font-size: 14px;
+}
+    

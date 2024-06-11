@@ -1,0 +1,292 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using System.Globalization
+@inject IViewLocalizer Localizer;
+@{
+    ViewData["Title"] = "Man";
+    var lan = "";
+    var direction = "";
+
+    if (CultureInfo.CurrentCulture.Name.StartsWith("ar"))
+    {
+        lan = "ar";
+        direction = "rtl";
+    }
+    else
+    {
+        lan = "en";
+        direction = "ltr";
+    }
+}
+
+@section Styles {
+        <link rel="stylesheet" href="~/css/man.css" />
+
+}
+
+    <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-swipe="false">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                 <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="1">
+                     <img src="~/images/man1.webp" class="d-block w-100" alt="...">
+                 </a>
+            </div>
+            <div class="carousel-item">
+                <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="1">
+                    <img src="~/images/man2.webp" class="d-block w-100" alt="...">
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="1">
+                    <img src="~/images/3.webp" class="d-block w-100" alt="...">
+                </a>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="container text-center">
+         <h2 class="m-4 titles">
+            @Localizer["THE_COUNTDOWN_TO_RAMADAN_HAS_BEGUN"]
+        </h2>
+    </div>
+
+<div>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="1">
+    <img src="@Url.Content("~/images/man3.webp")" alt="" style="width:100%">
+    </a>
+</div>
+<div class="container text-center">
+
+    <h2  class="m-4 titles">
+        @Localizer["THE_SEASONS_TOP_PICKS"]
+    </h2>
+</div>
+
+<div style="display: flex; justify-content: space-between;">
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="1" class="content4">
+        <img src="~/images/man4.webp" alt="">
+    </a>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="1" class="content4">
+        <img src="~/images/man5.webp" alt="">
+    </a>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="1" class="content4">
+        <img src="~/images/man6.jpg" alt="">
+    </a>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="1" class="content4">
+        <img src="~/images/man7.webp" alt="">
+    </a>
+    
+</div>
+
+
+<div id="carouselExampleControlsNoTouching2" class="carousel slide mt-4 mb-4" data-bs-touch="false" data-bs-swipe="false">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="@Url.Content("~/images/1slid.webp")" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="@Url.Content("~/images/2slide.webp")" class="d-block w-100" alt="...">
+        </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching2" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: #818181;color: black;"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching2" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: #818181;color: black;"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+    <div>
+       <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="1">
+        <img src="~/images/man8.webp" width="100%">
+       </a>
+    </div>
+<div id="carouselExampleControlsNoTouching3" class="carousel slide mt-5 mb-5" data-bs-touch="false" data-bs-swipe="false">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="@Url.Content("~/images/man1slide3.webp")" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="@Url.Content("~/images/man2slide3.webp")" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="@Url.Content("~/images/man3slide3.webp")" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching3" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: #818181;color: black;"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching3" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: #818181;color: black;"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+<div style="display: flex; justify-content: space-between;">
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="1" class="content4">
+        <img src="~/images/mann1.webp" alt="" >
+    </a> 
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="1" class="content4">
+        <img src="~/images/mann2.webp" alt="">
+    </a>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="1" class="content4">
+        <img src="~/images/mann3.webp" alt="">
+    </a>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="1" class="content4">
+        <img src="~/images/mann4.webp" alt="">
+    </a>
+</div>
+
+<div id="carouselExampleControlsNoTouching4" class="carousel slide mt-4 mb-4" data-bs-touch="false" data-bs-swipe="false">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="@Url.Content("~/images/manslide4.webp")" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="@Url.Content("~/images/man20slide4.gif")" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching4" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: #818181;color: black;"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching4" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: #818181;color: black;"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<div>
+     <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="1">
+         <img src="~/images/man10.webp" width="100%">
+     </a>
+</div>
+<p class="mt-3 mb-3 ms-2 titles">ACCESSORY & FOOTWEAR</p>
+
+<div style="display: flex; justify-content: space-between;">
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="1" class="content4">
+        <img src="~/images/mannn11.webp" alt="" >
+     </a>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="1" class="content4">
+        <img src="~/images/mannn12.webp" alt="" >
+     </a>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="1" class="content4">
+        <img src="~/images/mannn13.webp" alt="" >
+     </a>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="1" class="content4">
+        <img src="~/images/mannn14.webp" alt="" >
+     </a>
+</div>
+
+<section>
+    <div class="searchforthis">
+        <div class="searchforthis__title">
+            <i class="icon-search" id="sear-id"></i>
+            Were you looking for this?
+        </div>
+        <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+            <div class="swiper-wrapper">
+                @foreach (var item in ViewBag.Categories)
+                {
+                    if (lan == "ar")
+                    {
+                        <a asp-action="ProductsFilter" asp-controller="product" asp-route-catName="@item.ar_Name" class="swiper-slide swiper-slide-active">@item.ar_Name</a>
+                    }
+                    else
+                    {
+                        <a asp-action="ProductsFilter" asp-controller="product" asp-route-catName="@item.Name" class="swiper-slide swiper-slide-active">@item.Name</a>
+                    }
+                }
+
+            </div>
+        </div>
+    </div>
+</section>
+<p class="mt-4 mb-3 ms-2 titles">POPULAR CATEGORIES</p>
+
+<div id="carouselExampleIndicators5" class="carousel slide container-fluid" data-bs-ride="carousel" data-bs-interval="2500">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="row">
+                <div class="col-lg-2 col-sm-3 ms-md-2 m-1 bg-light text-dark d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm custom-font-size-md" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                    Berts
+                </div>
+                <div class="col-lg-2 col-sm-3 ms-md-2 m-1 bg-light text-dark d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm custom-font-size-md" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                    Shirts
+                </div>
+                <div class="col-lg-2 col-sm-3 ms-md-2 m-1 bg-light text-dark d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm custom-font-size-md" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                    Sweatpants
+                </div>
+                <div class="col-lg-2 col-sm-3 ms-md-2 m-1 bg-light text-dark d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm custom-font-size-md" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                    Homewear
+                </div>
+                <div class="col-lg-2 col-sm-3 ms-md-2 m-1 bg-light text-dark d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm custom-font-size-md" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                    Jeans
+                </div>
+                <div class="col-lg-2 col-sm-3 ms-md-2 m-1 bg-light text-dark d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm custom-font-size-md" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                    Outerwears
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="row">
+                <div class="col-lg-2 col-sm-3 ms-md-2 m-1 bg-light text-dark d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm custom-font-size-md" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                    Ramdan Sale
+                </div>
+                <div class="col-lg-2 col-sm-3 ms-md-2 m-1 bg-light text-dark d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm custom-font-size-md" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                    Man Shoes
+                </div>
+                <div class="col-lg-2 col-sm-3 ms-md-2 m-1 bg-light text-dark d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm custom-font-size-md" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                    Man Jackets
+                </div>
+                <div class="col-lg-2 col-sm-3 ms-md-2 m-1 bg-light text-dark d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm custom-font-size-md" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                    Trousers
+                </div>
+                <div class="col-lg-2 col-sm-3 ms-md-2 m-1 bg-light text-dark d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm custom-font-size-md" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                    SweatShirts
+                </div>
+                <div class="col-lg-2 col-sm-3 ms-md-2 m-1 bg-light text-dark d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm custom-font-size-md" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                    Man Studio
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+@*   partial view *@
+<span class="me-5 m-3 ">Special Products For You</span>
+<span class="me-5 m-3 ">Favorite</span>
+<span class="me-5 m-3 ">Last Visited</span>
+<hr>
+
+<div class="m-2" style="display: flex; justify-content: space-between;">
+    <img src="@Url.Content("~/images/manlast1.webp")" alt="" style="width: 16.3%; height: auto;" class="img-fluid">
+    <img src="@Url.Content("~/images/manlast2.webp")" alt="" style="width: 16.3%; height: auto;" class="img-fluid">
+    <img src="@Url.Content("~/images/manlast3.webp")" alt="" style="width: 16.3%; height: auto;" class="img-fluid">
+    <img src="@Url.Content("~/images/manlast4.webp")" alt="" style="width: 16.3%; height: auto;" class="img-fluid">
+    <img src="@Url.Content("~/images/manlast6.webp")" alt="" style="width: 16.3%; height: auto;" class="img-fluid">
+    <img src="@Url.Content("~/images/manlast7.webp")" alt="" style="width: 16.3%; height: auto;" class="img-fluid">
+</div>
+
+
+

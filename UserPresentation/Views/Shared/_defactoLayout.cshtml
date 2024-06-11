@@ -1,0 +1,440 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using System.Globalization
+@inject IViewLocalizer Localizer
+@{
+
+    var lan = "";
+    var direction = "";
+
+    if (CultureInfo.CurrentCulture.Name.StartsWith("ar"))
+    {
+        lan = "ar";
+        direction = "rtl";
+    }
+    else
+    {
+        lan = "en";
+        direction = "ltr";
+    }
+    string path = Context.Request.Path;
+   
+    string ACVwomen = path.EndsWith("/IndexWoman") ? "active-de" : "";
+    string ACVmen =   path.EndsWith("/IndexMan")     ? "active-de" : "";
+    string ACVKids =  path.EndsWith("/IndexKids")    ? "active-de" : "";
+    string ACVBaby =  path.EndsWith("/IndexBaby")    ? "active-de" : "";
+    string ACVBefit = path.EndsWith("/IndexBefit")   ? "active-de" : "";
+
+}
+<!DOCTYPE html>
+<html lang="@lan" dir="@direction">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="//dfcdn.defacto.com.tr/AssetsV2/dist/img/favicon.png">
+
+    <link href="~/css/navbar/font-awesome.min.css" rel="stylesheet" />
+   
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/UserPresentation.styles.css" asp-append-version="true" />
+    @if (direction == "rtl")
+    {
+        <link href="~/css/filter_ar.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/css/layout_ar.css" />
+        <link href="~/css/login_ar.css" rel="stylesheet" />
+    }
+    else
+    {
+        <link href="~/css/filter.css" rel="stylesheet" />
+        <link href="~/css/layout.css" rel="stylesheet" />
+        <link href="~/css/login.css" rel="stylesheet" />
+    }
+  
+    @RenderSection("Styles", required: false)
+</head>
+
+<body>
+
+ 
+    <partial name="_LOGANDREG" />
+    <!-- Off_Canvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+       
+        
+        <div class="offcanvas__nav__option">
+            <form asp-action="ProductsFilter" asp-controller="product">
+                <div class="inner-form">
+                    <div class="input-field">
+                        <input class="form-control" id="choices-text-preset-values-2" name="searchTxt" type="text"
+                               placeholder=@Localizer["SearchtxtNav"] />
+                        <button class="btn-search" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__text">
+            <p>@Localizer["FreeShipping"]</p>
+        </div>
+        <div class="offcanvas__option" id="select-lang">
+        </div>
+    </div>
+    <!-- blach nav-->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-7">
+                        <div class="header__top__left">
+                            <p>@Localizer["FreeShipping"]</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-5">
+                        <div class="header__top__right">
+
+                            <div class="header__top__hover">
+                                <span > 
+                                    <i class="arrow_carrot-down">
+                                        <span class="select-lang-partial">
+                                            <partial name="_selectLanguage" />
+                                        </span>
+                                        
+                                       </i>
+                                </span>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" id="navbar" >
+            <div class="row" id="navbar-row">
+                <div class="col-lg-2 col-md-2" style="width:14.6%" id="logo-container">
+                    <div class="header__logo">
+                        <a asp-action="Index" asp-controller="home"><img id="LogoImage" src="~/images/de-facto-logo-light-v2.svg" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3" style="width:26.3%">
+                    <nav class="header__menu mobile-menu">
+                        <ul style="  text-align: start; padding-left: 0rem;">
+                            <li class="nav-item">
+                                <a class=" @ACVwomen" asp-action="IndexWoman" asp-controller="Home">@Localizer["WOMAN"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class=" @ACVmen" asp-action="IndexMan" asp-controller="Home">@Localizer["MAN"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class=" @ACVKids" asp-action="IndexKids" asp-controller="Home">@Localizer["KIDS"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class=" @ACVBaby" asp-action="IndexBaby" asp-controller="Home">@Localizer["BABY"]</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class=" @ACVBefit" asp-action="IndexBefit" asp-controller="Home">@Localizer["DEFIT"]</a>
+                            </li>
+                            <li onclick="SHowLoginAndRegester()" class="nav-item" style="display:none" id="nav-login-for-mobile">
+                                <a href="#">
+                                    <i style="display:contents;" class="fa-regular fa-user"></i>@Localizer["LoginDe"]
+                                </a>
+                            </li> 
+                            <li  class="nav-item" style="display:none" id="nav-login-for-mobile">
+                                <a asp-action="Favorite" asp-controller="Product" style="width:14vh" >
+                                    <i style="display:contents;" class="fa-regular fa-heart m-1"></i>@Localizer["Favorite"]
+                                </a>
+                            </li>
+                            <li  class="nav-item" style="display:none" id="nav-login-for-mobile">
+                                
+                                <a rel="nofollow" class="header__section--toggle" asp-action="Cart" asp-controller="Product" style="width:24vh">
+                                    <i class="fa fa-shopping-bag m-2"></i>
+                                    <span class="mini-basket-count" id="cartQuantity_1">0</span>
+                                    <span>@Localizer["ShoppingCart"]</span>
+
+                                </a>
+                            </li>
+                        
+                        </ul>
+                    </nav>
+                </div>
+                    <div class="col-lg-4 col-md-4" style="width:29.3%">
+                         <div class="SearchF">
+                        <form asp-action="ProductsFilter" asp-controller="product">
+                            <div class="inner-form">
+                                <div class="input-field">
+                                    <input class="form-control" id="choices-text-preset-values" name="searchTxt" type="text" placeholder=@Localizer["SearchtxtNav"] />
+                                    <button class="btn-search" type="submit" >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </form>
+                     </div>
+                </div>
+                <div class="col-lg-3 col-md-3" style="width:29%">
+                    <div class="Local-storge-section">
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <a href="#" onclick="SHowLoginAndRegester()" style="width:14vh">
+                                <i style="display:contents;" class="fa-regular fa-user"></i>@Localizer["LoginDe"]
+                            </a>
+                        }
+                        else
+                        {
+                            <a asp-action="logOut" asp-controller="Account" style="width:14vh">
+                                <i style="display:contents;" class="fa fa-sign-out" aria-hidden="true"></i>@Localizer["LogOut"]
+                            </a>
+                        }
+
+                       
+                        <a asp-action="Favorite" asp-controller="Product" style="width:14vh">
+                            <i style="display:contents;" class="fa-regular fa-heart m-1"></i>@Localizer["Favorite"]
+                        </a>
+                       @*  <a asp-action="Cart" asp-controller="Product" style="width:24vh">
+                            <i style="display:inline-block; " class="fa fa-shopping-bag m-1" aria-hidden="false"></i>
+                            <span class="" id="cartQuantity">0 </span>
+                            <span>@Localizer["ShoppingCart"] </span>
+                        </a> *@
+                        <a rel="nofollow" class="header__section--toggle" asp-action="Cart" asp-controller="Product" style="width:24vh">
+                            <i class="fa fa-shopping-bag m-2"></i>
+                            <span class="mini-basket-count" id="cartQuantity">0</span>
+                            <span>@Localizer["ShoppingCart"]</span>
+                           
+                        </a>
+                     
+
+                    </div>
+                </div>
+            </div>
+            <div class="Container-of-canvas__open">
+                <div class="canvas__open "><i class="fa fa-bars"></i></div>
+            </div>
+            <hr />
+        </div>
+    </header>
+
+    <div class="container-Fluid">
+
+        <main role="main" class="pb-3">
+
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer style="background-color:RGB(240 240 240); font-size: 13px;" class="mt-4 p-4">
+        <div class="mt-3 d-flex flex-wrap justify-content-around">
+            <div class="icon-container  mb-4">
+                <img src="@Url.Content("~/images/icon1.svg")" alt="" class="me-3 img-fluid">
+                <div class="mt-2">
+                    <div class="footer-services__item--title">@Localizer["Click&amp;Collect From Store"]</div>
+                    <div class="footer-services__item--sub-title">Free Cargo</div>
+                </div>
+            </div>
+
+            <div class="icon-container  mb-4">
+                <img src="@Url.Content("~/images/icon2.svg")" alt="" class="me-3 img-fluid">
+
+                <div class="mt-2">
+                    <div class="footer-services__item--title">Cash On Delivery</div>
+                    <div class="footer-services__item--sub-title"> Cash on delivery fee is 15 EGP</div>
+                </div>
+            </div>
+
+            <div class="icon-container mb-4">
+                <img src=" @Url.Content("~/images/icon3.svg")" alt="" class=" me-3 img-fluid">
+                <div class="mt-2">
+                    <div class="footer-services__item--title">Click&amp;Collect From Store</div>
+                    <div class="footer-services__item--sub-title">Free Cargo</div>
+                </div>
+            </div>
+
+            <div class="icon-container  mb-4">
+                <img src="@Url.Content("~/images/icon4.svg")" alt="" class="me-3 img-fluid">
+                <div class="mt-2">
+                    <div class="footer-services__item--title">Click&amp;Collect From Store</div>
+                    <div class="footer-services__item--sub-title">Free Cargo</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="m-3 d-md-flex justify-content-md-between flex-wrap">
+
+            <div class="headSecondFooter mt-5 ms-md-5 mb-md-0">
+                <h5>Corporate Information</h5>
+                <a href="#" class="d-block mb-3">Defacto</a>
+                <a href="#" class="d-block mb-3">About Us</a>
+                <a href="#" class="d-block mb-3">Human Resources</a>
+            </div>
+            <div class="headSecondFooter mt-5 mb-md-0">
+                <h5>Help</h5>
+                <a href="#" class="d-block">Frequently Asked Questions</a>
+                <a href="#" class="d-block">Return And Changes</a>
+                <a href="#" class="d-block">Order Tracking</a>
+                <a href="#" class="d-block">How to shop on DeFacto?</a>
+                <a href="#" class="d-block">How to pay on DeFacto?</a>
+                <a href="#" class="d-block">Conditions of competition</a>
+            </div>
+            <div class="headSecondFooter mt-5 mb-md-0">
+                <h5>Contact Us</h5>
+                <a href="#" class="d-block mb-3">Contact Form</a>
+                <a href="#" class="d-block mb-3">Customer Services</a>
+                <a href="#" class="d-block mb-3">WhatsApp +20 150 171 8113</a>
+                <a href="#" class="d-block mb-3">Call Center 19782</a>
+            </div>
+            <div class="headSecondFooter mt-5 me-md-5 mb-md-0 d-flex flex-column ">
+                <h5>Social Media</h5>
+                <div class="headSecondFooter mt-5 me-md-5 mb-md-0 d-flex flex-row align-items-md-end">
+                    <a href="#"><i class="me-4 fab fa-instagram" style="font-size: 3rem;"></i></a>
+                    <a href="#"><i class=" ms-4 fab fa-tiktok" style="font-size: 3rem;"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr class="mt-5 mb-5">
+        <div class="container">
+            <div class="newsletter">
+                <div class="newsletter__title">JOIN THE FUN!</div>
+                <div class="newsletter__subtitle">Subscribe to get the latest updates about our campaigns</div>
+                <div class="newsletter__form">
+                    <form id="newsletter-form" method="POST" class="form" novalidate="novalidate">
+                        <div class="newsletter__radio-group">
+                            <div class="newsletter__radio-group--title">Who are you shopping for?</div>
+                            <div class="newsletter__radio-group--buttons">
+                                <div class="newsletter-custom-radio" onclick="femalebtn()">
+                                    <input  type="radio" 
+                                           name="gender" 
+                                           required-message="Please select gender." required="" checked=""> <label id="femaleButton" for="subscribeToNewsletterFemale">Female</label>
+                                </div>
+                                <div class="newsletter-custom-radio" onclick="malebtn()">
+                                    <input  type="radio" 
+                                           name="gender"
+                                           required-message="Please select gender." required=""> <label id="maleButton" for="subscribeToNewsletterMale">Male</label>
+                                </div>
+                                <div class="newsletter-custom-radio" onclick="kids()">
+                                    <input  type="radio" 
+                                           name="gender" 
+                                           required-message="Please select gender." required=""> <label id="kidsButton" for="subscribeToNewsletterKid">Kids</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="newsletter__input-group">
+                            <div class="custom-input">
+                                <input id="NewsletterEmail" data-type="email" name="email"
+                                       required-message="Please enter a valid email address."
+                                       validate-message="Please enter a valid email address." required=""> <label for="NewsletterEmail">E-mail Address</label>
+                            </div>
+                            <div class="custom-checkbox">
+                                <input type="checkbox" data-type="checkbox" id="NewsletterContract"
+                                       required="" required-message="Please accept the Confidenciality Policy."> <label for="NewsletterContract">
+                                    <a class="black-link"
+                                       href="/en-eg/static/privacy-policy">
+                                        <strong>
+                                            I accept the Confidenciality
+                                            Policy
+                                        </strong>
+                                    </a>
+                                </label>
+                            </div>
+                            <div class="break-group"></div><button class="button button--small" id="NewsletterBtn">
+                                Subscribe
+                                Now!
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <p class="m-4">TOP CATEGORIES</p>
+
+        <div class="m-3 d-md-flex justify-content-md-between flex-wrap">
+
+            <div class="headSecondFooter mt-5  mb-md-0">
+                <a href="#" class="d-block mb-3">Stores</a>
+                <a href="#" class="d-block mb-3">Brand Ambassador</a>
+                <a href="#" class="d-block mb-3">Women's Day Gifts</a>
+                <a href="#" class="d-block mb-3">Man Jeans</a>
+                <a href="#" class="d-block mb-3">Woman Perfume</a>
+            </div>
+
+            <div class="headSecondFooter mt-5 mb-md-0">
+                <a href="#" class="d-block mb-3">Man Sweatshirts</a>
+                <a href="#" class="d-block mb-3">Woman Tunics</a>
+                <a href="#" class="d-block mb-3">Woman Trousers</a>
+                <a href="#" class="d-block mb-3">Woman Shirt</a>
+                <a href="#" class="d-block mb-3">Woman Dress</a>
+
+            </div>
+
+            <div class="headSecondFooter mt-5  mb-md-0">
+                <a href="#" class="d-block mb-3">Woman Skirt</a>
+                <a href="#" class="d-block mb-3">Man Shirt</a>
+                <a href="#" class="d-block mb-3">Man Trousers</a>
+                <a href="#" class="d-block mb-3">Man Jeans</a>
+                <a href="#" class="d-block mb-3">Man Blazer Jacket</a>
+            </div>
+
+            <div class="headSecondFooter mt-5  mb-md-0">
+                <a href="#" class="d-block mb-3">Man Outwear</a>
+                <a href="#" class="d-block mb-3">Girl Trousers</a>
+                <a href="#" class="d-block mb-3">Girl Blouse</a>
+                <a href="#" class="d-block mb-3">Woman Outwear</a>
+                <a href="#" class="d-block mb-3">Baby Girl Newborn</a>
+            </div>
+
+
+            <div class="headSecondFooter mt-5  mb-md-0">
+                <a href="#" class="d-block mb-3">Baby Boy Newborn</a>
+                <a href="#" class="d-block mb-3">Boy T-shirt</a>
+                <a href="#" class="d-block mb-3">Woman Blazer Jacket</a>
+                <a href="#" class="d-block mb-3">Woman Accessories</a>
+                <a href="#" class="d-block mb-3">Modest Dress</a>
+            </div>
+
+
+            <div class="headSecondFooter mt-5  mb-md-0">
+                <a href="#" class="d-block mb-3">Man Perfume</a>
+                <a href="#" class="d-block mb-3">Woman Sweatshirt</a>
+                <a href="#" class="d-block mb-3">Ramadan Offers</a>
+                <a href="#" class="d-block mb-3">Baby Colourful Style</a>
+                <a href="#" class="d-block mb-3">Kids Colourful Style</a>
+            </div>
+        </div>
+        <div class="mt-4">
+            <img style="width: 80px;" src="@Url.Content("~/images/money11.webp")" alt="">
+            @* <img style="width: 80px;" src="@Url.Content("~/images/money1.webp")" alt=""> *@
+            <img style="width: 80px;" src="@Url.Content("~/images/money2.webp")" alt="">
+            <img style="width: 80px;" src="@Url.Content("~/images/money3.webp")" alt="">
+            <img style="width: 80px;" src="@Url.Content("~/images/money4.webp")" alt="">
+            <img style="width: 80px;" src="@Url.Content("~/images/money5.webp")" alt="">
+            <img style="width: 80px;" src="@Url.Content("~/images/money6.webp")" alt="">
+        </div>
+    </footer>
+    <script src="~/js/Navbar.js"></script>
+      <script src="~/js/Cart.js"></script>
+    <script src="~/js/layout.js"></script>
+    <script src="~/js/templetejs/jquery-3.3.1.min.js"></script>
+    <script src="~/js/templetejs/jquery.slicknav.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://kit.fontawesome.com/a3579546df.js" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            updateCartQuantityDisplay();
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+ 
+</body>
+</html>

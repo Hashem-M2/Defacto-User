@@ -1,0 +1,302 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using System.Globalization
+@inject IViewLocalizer Localizer;
+@{
+    ViewData["Title"] = "Baby";
+    var lan = "";
+    var direction = "";
+
+    if (CultureInfo.CurrentCulture.Name.StartsWith("ar"))
+    {
+        lan = "ar";
+        direction = "rtl";
+    }
+    else
+    {
+        lan = "en";
+        direction = "ltr";
+    }
+}
+<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-swipe="false">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+              <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="3">
+                <img src="~/images/Baby/carsbab1.webp" class="d-block w-100" alt="...">
+              </a> 
+        </div>
+        <div class="carousel-item">
+            <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="3">
+                <img src="~/images/Baby/carbab2.webp" class="d-block w-100" alt="...">
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="3">
+                <img src="~/images/2.webp" class="d-block w-100" alt="...">
+            </a>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
+        <span class="visually-hidden">@Localizer["Previous"]</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+        <span class="carousel-control-next-icon" ></span>
+        <span class="visually-hidden">@Localizer["Next"]</span>
+    </button>
+</div>
+
+<div class="mt-4">
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="3">
+         <img src="~/images/Baby/sec2bab.webp" alt="" width="100%">
+    </a>
+</div>
+<div class="mt-4">
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="3">
+        <img src="~/images/Baby/sec3bab.webp" alt="" width="100%">
+    </a>
+</div>
+<div class="mt-4">
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="3">
+        <img src="~/images/Baby/sec4bab.webp" alt="" width="100%">
+    </a>
+</div>
+
+
+<div id="carouselExampleIndicators7" class="carousel slide container" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="row mt-3">
+                <div class="col-lg-3">
+                    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="3">
+                        <img src="~/images/Baby/cars2bab1.webp" alt="" width="100%">
+                    </a>
+                                  </div>
+                <div class="col-lg-3">
+                    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="3">
+                        <img src="~/images/Baby/cars2bab2.webp" alt="" width="100%">
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="3">
+                        <img src="~/images/Baby/cars2bab3.webp" alt="" width="100%">
+                    </a>
+                </div>
+                <div class="col-lg-3">
+                    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="3">
+                        <img src="~/images/Baby/cars2bab4.webp" alt="" width="100%">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="row mt-3">
+                <div class="col-lg-3">
+                    <img src="~/images/Baby/cars2bab1.webp" alt="" class="w-100 d-block">
+                </div>
+                <div class="col-lg-3">
+                    <img src="~/images/Baby/cars2bab2.webp" alt="" class="w-100 d-block">
+                </div>
+                <div class="col-lg-3">
+                    <img src="~/images/Baby/cars2bab3.webp" alt="" class="w-100 d-block">
+                </div>
+                <div class="col-lg-3">
+                    <img src="~/images/Baby/cars2bab4.webp" alt="" class="w-100 d-block">
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators7" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" ></span>
+        <span class="visually-hidden">@Localizer["Previous"]</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators7" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" ></span>
+        <span class="visually-hidden">@Localizer["Next"]</span>
+    </a>
+</div>
+
+
+<div id="carouselExampleControlsNoTouching4" class="carousel slide mt-4 mb-4" data-bs-touch="false" data-bs-swipe="false">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/images/man20slide4.gif" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item ">
+            <img src="~/images/manslide4.webp" class="d-block w-100" alt="...">
+        </div>
+       
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching4" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" style="background-color: #818181;color: black;"></span>
+        <span class="visually-hidden">@Localizer["Previous"]</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching4" data-bs-slide="next">
+        <span class="carousel-control-next-icon" style="background-color: #818181;color: black;"></span>
+        <span class="visually-hidden">@Localizer["Next"]</span>
+    </button>
+</div>
+
+<div>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="3">
+        <img src="~/images/Baby/aftcars4.webp" alt="" width="100%">
+    </a>
+</div>
+
+<div style="display: flex; justify-content: space-between;">
+    <a class="content4" asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="3">
+        <img src="~/images/Baby/galbab1.webp" alt="" >
+      </a>
+    <a class="content4" asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="3">
+        <img src="~/images/Baby/galbab2.webp" alt="">
+      </a>
+    <a class="content4" asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="3">
+        <img src="~/images/Baby/galbab3.webp" alt="">
+      </a>
+    <a class="content4" asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="3">
+        <img src="~/images/Baby/galbab4.webp" alt="">
+      </a>
+</div>
+
+
+
+<div id="carouselExampleControlsNoTouching3" class="carousel slide mt-5 mb-5" data-bs-touch="false" data-bs-swipe="false">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/images/man1slide3.webp" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/man2slide3.webp" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/man3slide3.webp" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching3" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" style="background-color: #818181;color: black;"></span>
+        <span class="visually-hidden">@Localizer["Previous"]</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching3" data-bs-slide="next">
+        <span class="carousel-control-next-icon" style="background-color: #818181;color: black;"></span>
+        <span class="visually-hidden">@Localizer["Next"]</span>
+    </button>
+</div>
+
+
+<div>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="3">
+        <img src="~/images/Baby/carbab.webp" alt="" width="100%">
+    </a>
+</div>
+
+<div style="display: flex; justify-content: space-between;">
+    <a class="content4" asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="3">
+        <img src="~/images/Baby/gal2bab1.webp" alt="" >
+    </a> 
+    <a class="content4" asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="3">
+        <img src="~/images/Baby/gal2bab2.webp" alt="" >
+    </a> <a class="content4" asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="3">
+        <img src="~/images/Baby/gal2bab3.webp" alt="" >
+    </a>
+    <a class="content4" asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="3">
+        <img src="~/images/Baby/gal2bab4.webp" alt="" >
+    </a>
+
+ 
+</div>
+
+<div class="m-2">
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="3">
+        <img src="~/images/Baby/carbab12.webp" alt="" width="100%">
+    </a>
+</div>
+
+
+
+<p class="mt-4 mb-3 ms-2" style="font-size: 1.7rem; opacity:.8;"> @Localizer["POPULAR"]</p>
+
+<div id="carouselExampleIndicators5" class="carousel slide container-fluid" data-bs-ride="carousel" data-bs-interval="2500">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="row">
+                <div class="col-lg-2 m-3 bg-light text-dark d-flex align-items-center justify-content-center pro-cat">
+                    @Localizer["Baby Girl Overalls"]
+                </div>
+                <div class="col-lg-2 m-3 bg-light text-dark d-flex align-items-center justify-content-center pro-cat">
+                    @Localizer["Baby Boy Newborn"]
+                </div>
+                <div class="col-lg-2 m-3 bg-light text-dark d-flex align-items-center justify-content-center pro-cat">
+                    @Localizer["Baby Boy SweatPants"]
+                </div>
+                <div class="col-lg-2 m-3 bg-light text-dark d-flex align-items-center justify-content-center pro-cat">
+                    @Localizer["Baby Girl Newborn"]
+                </div>
+                <div class="col-lg-2 m-3 bg-light text-dark d-flex align-items-center justify-content-center pro-cat">
+                    @Localizer["Baby Girl Newborn"]
+                </div>
+
+                <div class="col-lg-2 m-3 bg-light text-dark d-flex align-items-center justify-content-center pro-cat">
+                 @Localizer["Baby Girl SweatPants"]
+                </div>
+
+            </div>
+        </div>
+        <div class="carousel-item">
+
+            <div class="row">
+
+                <div class="col-lg-2 m-3 bg-light text-dark d-flex align-items-center justify-content-center pro-cat">
+                    @Localizer["Baby Girl Cardigans"]
+                </div>
+
+                <div class="col-lg-2 m-3 bg-light text-dark d-flex align-items-center justify-content-center pro-cat">
+                    @Localizer["Baby Boy SweatShirts"]
+                </div>
+                <div class="col-lg-2 m-3 bg-light text-dark d-flex align-items-center justify-content-center pro-cat">
+                    @Localizer["Baby Girl Berets"]
+                </div>
+                <div class="col-lg-2 m-3 bg-light text-dark d-flex align-items-center justify-content-center pro-cat">
+                    @Localizer["Baby Boy Berets"]
+                </div>
+                <div class="col-lg-2 m-3 bg-light text-dark d-flex align-items-center justify-content-center pro-cat">
+                    @Localizer["Boys Tank Tops"]
+                </div>
+                <div class="col-lg-2 m-3 bg-light text-dark d-flex align-items-center justify-content-center pro-cat">
+                    @Localizer[" Ramadan Sale"]
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden"> @Localizer["Previous"]</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">@Localizer["Next"]</span>
+    </button>
+</div>
+<section>
+    <div class="searchforthis">
+        <div class="searchforthis__title">
+            <i class="icon-search" id="sear-id"></i>
+            @Localizer["Were you looking for this?"]
+        </div>
+        <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+            <div class="swiper-wrapper">
+                @foreach (var item in ViewBag.Categories)
+                {
+                    if (lan == "ar")
+                    {
+                        <a asp-action="ProductsFilter" asp-controller="product" asp-route-catName="@item.ar_Name" class="swiper-slide swiper-slide-active">@item.ar_Name</a>
+                    }
+                    else
+                    {
+                        <a asp-action="ProductsFilter" asp-controller="product" asp-route-catName="@item.Name" class="swiper-slide swiper-slide-active">@item.Name</a>
+                    }
+                }
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,41 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using System.Globalization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] ="Defacto";
+
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/index.css" />
+}
+
+
+<div class="row" style="--bs-gutter-x: -0.5rem;max-width:99%">
+
+    <div class="col-sm d-flex align-items-center justify-content-center im" id="women-image"
+             onclick="window.open('/Home/IndexWoman');">
+        <a asp-action="IndexWoman" asp-controller="Home" class="home-main__image--text">
+            <span class="spn">@Localizer["WOMAN"]</span>
+        </a>
+    </div>
+    <div class="col-sm">
+   
+         
+        <div class="col-sm d-flex align-items-center justify-content-center im" id="women-image-1"
+             onclick="window.open('/Home/IndexMan');">
+            <a asp-action="IndexMan" asp-controller="Home" class="home-main__image--text">
+                <span class="spn">@Localizer["men"] </span>
+            </a>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="col-sm d-flex align-items-center justify-content-center im" id="women-image-2"
+             onclick="window.open('/Home/IndexKids');">
+            <a asp-action="IndexKids" asp-controller="Home" class="home-main__image--text">
+                <span class="spn">@Localizer["KidsandBaby"]</span>
+            </a>
+        </div>
+            
+    </div>
+  </div>
+

@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Favorite";
+}
+
+@section Styles {
+   
+
+   
+    <link href="~/css/Cart.css" rel="stylesheet" />
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Favorites</h2>
+            <input type="text" id="filterInput" class="form-control" placeholder="Search favorites...">
+            <div id="favoritesContainer"></div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script src="~/js/LocailStorage.js"></script>
+    <script src="~/js/Cart.js"></script>
+    <script src="~/js/getFavorites.js"></script>
+@*     <script src="~/js/templetejs/jquery-3.3.1.min.js"></script>
+    <script src="~/js/templetejs/bootstrap.min.js"></script>
+    <script src="~/js/filter.js"></script>
+    <script src="~/js/templetejs/jquery.countdown.min.js"></script>
+    <script src="~/js/templetejs/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/templetejs/jquery.nice-select.min.js"></script>
+    <script src="~/js/templetejs/jquery.nicescroll.min.js"></script>
+    <script src="~/js/templetejs/jquery.slicknav.js"></script>
+    <script src="~/js/templetejs/main.js"></script>
+    <script src="~/js/templetejs/mixitup.min.js"></script>
+    <script src="~/js/templetejs/owl.carousel.min.js"></script> *@
+    <script>
+        $(document).ready(function () {
+            getFavorites();
+        });
+    </script>
+}

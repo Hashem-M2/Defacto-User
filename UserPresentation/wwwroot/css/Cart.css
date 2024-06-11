@@ -1,0 +1,24 @@
+﻿
+
+
+.confirmation-dialog {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: lightgrey;
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+.confirmation-message {
+    margin-bottom: 10px;
+}
+
+.confirm-button {
+    padding: 10px 60px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: none;
+}

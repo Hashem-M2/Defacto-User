@@ -1,0 +1,37 @@
+﻿
+
+
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+    .product-card img {
+        width: 100%;
+        height: auto;
+    }
+
+.product-info {
+    padding: 10px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.remove-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+    .remove-button:hover {
+        background-color: #c82333;
+    }
+

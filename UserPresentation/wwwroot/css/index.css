@@ -1,0 +1,49 @@
+﻿
+
+.im {
+      transition: transform 0.4s ease-in-out;
+    width: 100%;
+    height: 688px;
+}
+
+.im:hover {
+    transform: scale(1.04)
+}
+
+
+
+/*.home-main__image--text span {
+    padding: 8px 37px;
+    background-color: rgba(0, 0, 0, .3);
+    border: 2px solid #fff;
+    text-transform: uppercase;
+}*/
+
+.home-main__image--text {
+    padding: 8px 37px;
+    background-color: rgba(0, 0, 0, .3);
+    border: 2px solid #fff;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 700;
+    text-decoration:none!important;
+}
+/*a :hover{
+    color: #fff !important;
+}*/
+.spn :hover {
+    color: #fff !important;
+}
+
+    #women-image {
+        background-image: url(/images/home1.jpg);
+        background-size: 100% 688px;
+    }
+#women-image-1 {
+    background-image: url(/images/home2.jpg);
+    background-size: 100% 688px;
+} #women-image-2 {
+        background-image: url(/images/home3.jpg);
+        background-size: 100% 688px;
+    }

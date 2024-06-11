@@ -1,0 +1,38 @@
+﻿
+.icon-container {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+
+.carousel-inner {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+
+    .carousel-item img {
+        width: 100%;
+        height: auto;
+    }
+
+.custom-font-size {
+    font-size: 16px;
+}
+
+
+.custom-font-size-sm {
+    font-size: 12px;
+}
+
+.custom-font-size-md {
+    font-size: 14px;
+}
+
+

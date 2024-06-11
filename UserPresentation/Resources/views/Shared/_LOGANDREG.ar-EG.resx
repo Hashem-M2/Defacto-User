@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="&amp;nbsp;by clicking of the 'Register' button." xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="and the processing and transfer of your personal data abroad within the scope of the&amp;nbsp;" xml:space="preserve">
+    <value />
+  </data>
+  <data name="and the&amp;nbsp;" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="ARE YOU ALREADY A MEMBER? LOG IN" xml:space="preserve">
+    <value>هل أنت عضو بالفعل؟تسجيل الدخول</value>
+  </data>
+  <data name="By clicking the “Sign Up” button you are deemed to have consented to the" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>مدينة</value>
+  </data>
+  <data name="Continue as guest" xml:space="preserve">
+    <value>متابعة كزائر</value>
+  </data>
+  <data name="Continue as guest=" xml:space="preserve">
+    <value>متابعة كزائر</value>
+  </data>
+  <data name="ContinueAsGuest" xml:space="preserve">
+    <value>سجل من جديد </value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>محل الاقامة</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>اليوم</value>
+  </data>
+  <data name="Day=" xml:space="preserve">
+    <value>اليوم</value>
+  </data>
+  <data name="DeFacto Gift Club Membership Agreement" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="E--mail" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="E-mail" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+  <data name="E-mail Address" xml:space="preserve">
+    <value>عنوان البريد الإلكتروني</value>
+  </data>
+  <data name="E-mail Address-" xml:space="preserve">
+    <value>عنوان البريد الإلكتروني</value>
+  </data>
+  <data name="E-mail Address--" xml:space="preserve">
+    <value>عنوان البريد الإلكتروني</value>
+  </data>
+  <data name="Explicit Consent Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>انثى</value>
+  </data>
+  <data name="Forgot Password" xml:space="preserve">
+    <value>هل نسيت كلمة المرور</value>
+  </data>
+  <data name="I do not want to specify" xml:space="preserve">
+    <value>لا اريد التحديد</value>
+  </data>
+  <data name="I have read and understand the&amp;nbsp;" xml:space="preserve">
+    <value>لقد قمت بقراءة وفهم </value>
+  </data>
+  <data name="I would like to sign up for the Defacto newsletter, receive Defacto survey inquiries and accept to receive E-Mails /SMS /calls for marketing purposes. I can unsubscribe from the newsletter and survey inquiries at any time for the future, e.g. by clicking on the unsubscribe link or sending an e-mail to dataprotection@defacto.com." xml:space="preserve">
+    <value>لقد قمت بقراءة وفهم شروط وقواعد استخدام الموقع الإلكترونى وفقا لقانون حماية البيانات الشخصية</value>
+  </data>
+  <data name="I would like to sign up for the Defacto newsletter, receive Defacto survey inquiries and accept to receive E-Mails /SMS/calls for marketing purposes. I can unsubscribe from the newsletter and survey inquiries at any time for the future, e.g. by clicking on the unsubscribe link or sending an e-mail to dataprotection@defacto.com." xml:space="preserve">
+    <value>أرغب فى الإشتراك فى الخدمة الإخبارية لديفاكتو وتلقى الإستفسارات حول إستطلاع ديفاكتو ، و قبول إستلام رسائل البريد الإلكترونى ، الرسائل النصية القصيرة \ المكالمات لأغراض التسويق . يمكننى إلغاء الإشتراك فى الخدمة الإخبارية وإستفسارات الإستبيان فى أى وقت فى المستقبل ، عن طريق النقر على رابط إلغاء الإشتراك أو إرسال بريد إلكترونى إلى ( dataprotection@defacto.com ) ستتم معالجة بياناتى وفقا لقانون حماية البيانات الشخصية . جميع البيانات الشخصية محمية وفقا للقانون رقم ١٥١ لسنة ٢٠٢٠ ( قانون حماية البيانات الشخصية)</value>
+  </data>
+  <data name="Last Name" xml:space="preserve">
+    <value>الاسم الاخير/ اسم العائلة</value>
+  </data>
+  <data name="LOG IN WITH SOCIAL ACCOUNT" xml:space="preserve">
+    <value>تسجيل الدخول باستخدام حساب التواصل الاجتماعي</value>
+  </data>
+  <data name="LOG IN WITH SOCIAL ACCOUNT-" xml:space="preserve">
+    <value>تسجيل الدخول باستخدام حساب التواصل الاجتماعي</value>
+  </data>
+  <data name="Login_partial" xml:space="preserve">
+    <value>تسجيل دخول</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>ذكر</value>
+  </data>
+  <data name="Member Clarification Text" xml:space="preserve">
+    <value>لقانون حماية البيانات الشخصية</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>الشهر</value>
+  </data>
+  <data name="Month=" xml:space="preserve">
+    <value>الشهر</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>الاسم</value>
+  </data>
+  <data name="NOT A MEMBER? JOIN" xml:space="preserve">
+    <value>لست عضو ؟ سجل </value>
+  </data>
+  <data name="NOW" xml:space="preserve">
+    <value>الآن</value>
+  </data>
+  <data name="NOW-" xml:space="preserve">
+    <value>الآن</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>كلمة المرور </value>
+  </data>
+  <data name="password--" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+  <data name="Please check your email address." xml:space="preserve">
+    <value>يرجى التحقق من عنوان البريد الإلكتروني الخاص بك</value>
+  </data>
+  <data name="Please enter your name." xml:space="preserve">
+    <value>اسمك</value>
+  </data>
+  <data name="Privacy Policy" xml:space="preserve">
+    <value>سياسة الخصوصية</value>
+  </data>
+  <data name="Register__" xml:space="preserve">
+    <value>التسجيل</value>
+  </data>
+  <data name="Remember me" xml:space="preserve">
+    <value>تذكرني</value>
+  </data>
+  <data name="Send Password" xml:space="preserve">
+    <value>ارسال كلمة المرور</value>
+  </data>
+  <data name="SIGN IN_" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="SiGnin" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="SiGnup" xml:space="preserve">
+    <value>حساب جديد</value>
+  </data>
+  <data name="Street" xml:space="preserve">
+    <value>شارع</value>
+  </data>
+  <data name="SUBSCRIBE WITH YOUR EMAIL ADDRESS" xml:space="preserve">
+    <value>إنشاء حساب جديد باستخدام عنوان البريد الإلكتروني</value>
+  </data>
+  <data name="Website Terms Use" xml:space="preserve">
+    <value>شروط وقواعد استخدام الموقع الإلكترونى وفقا</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>السنة</value>
+  </data>
+  <data name="Year-" xml:space="preserve">
+    <value>السنة</value>
+  </data>
+  <data name="You can reset your password using your registered e-mail address or phone number." xml:space="preserve">
+    <value>يمكنك إعادة تعيين كلمة المرور الخاصة بك باستخدام عنوان البريد الإلكتروني المسجل أو رقم الهاتف.</value>
+  </data>
+  <data name="Your name must be at least 2 characters" xml:space="preserve">
+    <value>يجب أن يتكون اسمك من حرفين على الأقل</value>
+  </data>
+  <data name="Your password must be in the range of 8-15 characters and contain numbers, uppercase and lowercase letters." xml:space="preserve">
+    <value>يجب أن تكون كلمة المرور الخاصة بك في نطاق 8-15 حرفًا وتحتوي على أرقام وأحرف كبيرة وصغيرة.</value>
+  </data>
+  <data name="Your personal data; It will be processed by the data controller Defacto company. You can find detailed information from&amp;nbsp;" xml:space="preserve">
+    <value>لقد قمت بقراءة وفهم شروط وقواعد استخدام الموقع الإلكترونى وفقا </value>
+  </data>
+  <data name="Your surname must be at least 2 characters" xml:space="preserve">
+    <value>يجب أن يتكون اسم العائلة من حرفين على الأقل</value>
+  </data>
+</root>

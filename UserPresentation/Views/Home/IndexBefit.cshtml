@@ -1,0 +1,54 @@
+﻿
+@using Microsoft.AspNetCore.Mvc.Localization
+@using System.Globalization
+@inject IViewLocalizer Localizer;
+@{
+    ViewData["Title"] = "Defit";
+    var lan = "";
+    var direction = "";
+
+    if (CultureInfo.CurrentCulture.Name.StartsWith("ar"))
+    {
+        lan = "ar";
+        direction = "rtl";
+    }
+    else
+    {
+        lan = "en";
+        direction = "ltr";
+    }
+}
+<div class="col-lg-12 mt-4 mb-3 d-flex justify-content-center">
+        <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="4">
+        <img src="~/images/Befit/Befit1.webp" class="d-block img-fluid" alt="...">
+
+        </a>
+</div>
+
+<div class="col-lg-12 mt-4 mb-3 d-flex justify-content-center">
+        <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="4">
+            <img src="~/images/Befit/befit2.webp" class="d-block img-fluid" alt="...">
+        </a>
+</div>
+
+
+<div class="mb-5" style="display: flex; justify-content: space-between;">
+    <a class="content4" asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="4">
+        <img src="~/images/Befit/galbefit1.webp" alt="" >
+    </a>  
+    <a class="content4" asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="4">
+        <img src="~/images/Befit/galbefit2.webp" alt="" >
+    </a> 
+    <a class="content4" asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="4">
+        <img src="~/images/Befit/galbefit3.webp" alt="" >
+    </a>  <a class="content4" asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="4">
+        <img src="~/images/Befit/galbefit4.webp" alt="" >
+    </a>
+
+  
+</div>
+<div class="col-lg-12 mb-5 mt-5" style="width:100%">
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="4">
+      <img src="~/images/befit/Befit2.webp" class="d-block w-100 mt-4 mb-3" alt="...">
+    </a>
+</div>

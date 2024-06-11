@@ -1,0 +1,6 @@
+@AdminAndVendordashboard_HostAddress = http://localhost:5025
+
+GET {{AdminAndVendordashboard_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

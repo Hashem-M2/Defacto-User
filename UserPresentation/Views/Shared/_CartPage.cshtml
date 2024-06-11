@@ -1,0 +1,113 @@
+﻿@using DTOs.Orders
+@{
+    var i = 0; 
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            @if (ViewBag.CartEntities.Count > 0)
+            {
+
+                <form id="orderForm" asp-action="CreateOrder" asp-controller="Order"  method="post">
+
+                    @foreach (var pro in ViewBag.CartEntities)
+                    {
+
+
+
+                        <input type="hidden" id="i-@pro.Id" value="@pro.Id"> <!-- Unique id for each input -->
+                        <input type="hidden" id="quantity-@pro.Id" value="0"> <!-- Unique id for each input -->
+                        <input type="hidden" id="price-@pro.Id" value="$0"> <!-- Unique id for each input -->
+                        <input type="hidden" id="OrderQuantity-@pro.Id" name="selectedItems[@i].QuantityOfItem" value="1">
+
+                        <div class="product-card">
+                            <div class="row align-items-center">
+                                <div class="col-md-1">
+                                    <input class="form-check-input" type="hidden" name="selectedItems[@i].itemID" value="@pro.Id" id="check-@pro.Id" style="right:10px">
+                                    <input class="form-check-input" type="checkbox" name="selectedItems[@i].IsSelected" onclick="updateIsSelected(this, @i)" value="@pro.Id" id="check2-@pro.Id" style="right:10px">
+
+                                </div>
+                                <div class="col-md-2">
+                                    <img src="data:image/jpg;base64,@pro.Image" alt="Product image">
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="product-info">
+                                        <h5>@pro.Title</h5>
+                                        <div class="mb-2">
+                                            <label for="color-@pro.Id">Color:</label>
+                                            <select id="color-@pro.Id" name="color" class="form-select form-select-sm">
+                                                @foreach (var color in pro.ColorsName)
+                                                {
+                                                    <option value="@color">@color</option>
+                                                }
+                                            </select>
+                                        </div>
+                                        <div class="mb-2">
+                                            <label for="size-@pro.Id">Size:</label>
+                                            <select id="size-@pro.Id" name="size" class="form-select form-select-sm">
+                                            </select>
+                                        </div>
+                                        <div class="quantity-controls mb-2">
+                                        <button class="btn btn-outline-secondary" type="button" onclick="decrementQuantity(this, @pro.Id);event.stopPropagation();">-</button>
+                                            <span class="quantity-text">Quantity 1</span>
+                                        <button class="btn btn-outline-secondary" type="button" onclick="incrementQuantity(this, @pro.Id);event.stopPropagation();">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <h5 class="mb-0" id="total-price-@pro.Id">$0</h5>
+                                </div>
+                                <div class="col-md-2">
+                                <button class="remove-button" onclick="removeItem(@pro.Id);event.stopPropagatio;return false;">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        i++;
+                    }
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-primary">Order Now</button>
+                    </div>
+                </form>
+
+            }
+            else
+            {
+                <div class="text-center mt-5">
+                    <h3>Your shopping cart is empty.</h3>
+                    <button type="button" class="btn btn-dark">Start shopping</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.form-select[name="color"]').each(function () {
+            var productId = $(this).attr('id').split('-')[1];
+            getSizes(productId);
+        });
+
+        $('.form-select[name="color"]').change(function () {
+            var productId = $(this).attr('id').split('-')[1];
+            getSizes(productId);
+        });
+        $('.form-select[name="size"]').change(function () {
+            $('.quantity-text').text('Quantity 1');
+            var productId = $(this).attr('id').split('-')[1];
+            var colorName = $("#color-" + productId + " option:selected").val();
+
+
+            getQuantityAndPrice(productId, colorName)
+        });
+       
+       
+
+    });
+
+</script>
+
+
+
+

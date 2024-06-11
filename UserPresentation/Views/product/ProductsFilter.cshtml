@@ -1,0 +1,546 @@
+﻿@using DTOs.ProductFilter;
+@model productsFilterWithPaging;
+@using Microsoft.AspNetCore.Mvc.Localization
+@using System.Globalization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "Product Filter";
+    string url = Context.Request.Path;
+    if (url == "/")
+    {
+        url = "/home/index";
+    }
+
+    var lan = "en";
+    var direction = "ltr";
+    var arrowNext = "right";
+    var arrowPerv = "left";
+
+
+    if (CultureInfo.CurrentCulture.Name.StartsWith("ar"))
+    {
+        lan = "ar";
+        direction = "rtl";
+        arrowNext = "left";
+        arrowPerv = "right";
+        
+    }
+
+}
+@section Styles {
+
+
+    <link href="~/css/priceRange.css" rel="stylesheet" />
+}
+
+<section class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    
+                    <div class="breadcrumb__links">
+                        <a asp-action="index" asp-controller="home">@Localizer["Home"] </a>
+
+                        <span> @Localizer["Shop"]</span>
+                    
+                    </div>
+
+
+                    <div class="catalog__head">
+                        @if (Model.searchTxt != null && Model.searchTxt != "")
+                        {
+                            <h1 class="catalog__head--title" >
+                                <strong>Search Result:</strong>
+                                @Model.searchTxt
+                            </h1>
+                            
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+<!-- Shop Section Begin -->
+<section class="shop spad">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2 ml-4">
+                <div class="shop__sidebar">
+                    <div class="shop__sidebar__search">
+                        <form action="#">
+                            <input type="text" placeholder=@Localizer["Searchtxt"]>
+                            <button type="submit"><span class="icon_search"></span></button>
+                        </form>
+                    </div>
+                    <div class="shop__sidebar__accordion">
+                        <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseOne">@Localizer["Gender"]</a>
+                                </div>
+                                <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__brand">
+                                            <ul>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input class="GenderCheck" type="checkbox" id="fx_c2-1608">
+                                                        <label for="fx_c2-1608" onclick="checkGenderList(1)">
+                                                            @Localizer["Male"]
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input class="GenderCheck" type="checkbox" id="fx_c2-1609" value="1">
+                                                        <label for="fx_c2-1609" onclick="checkGenderList(2)">
+                                                            @Localizer["Female"]
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input class="GenderCheck" type="checkbox" id="fx_c2-1610" value="2">
+                                                        <label for="fx_c2-1610" onclick="checkGenderList(3)">
+                                                            @Localizer["Teens_Boy"]
+                                                        </label>
+                                                    </div>
+                                                </li>
+
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input class="GenderCheck" type="checkbox" id="fx_c2-1611" value="1">
+                                                        <label for="fx_c2-1611" onclick="checkGenderList(4)">
+                                                            @Localizer["Teens_Girl"]  
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input class="GenderCheck" type="checkbox" id="fx_c2-1612" value="1">
+                                                        <label for="fx_c2-1612" onclick="checkGenderList(5)">
+                                                            @Localizer["Baby_Boy"] 
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input class="GenderCheck" type="checkbox" id="fx_c2-1613" value="1">
+                                                        <label for="fx_c2-1613" onclick="checkGenderList(6)">
+                                                            @Localizer["Baby_Girl"]
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseTwo"> @Localizer["Categories"]</a>
+                                </div>
+                                <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__categories">
+
+                                            <ul class="nice-scroll">
+
+
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1608">
+                                                        <label for="fx_c1-1608" onclick="checkCategory(1)">
+                                                            @Localizer["Men"]
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1609">
+                                                        <label for="fx_c1-1609" onclick="checkCategory(2)">
+                                                            @Localizer["WOMAN"] 
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1610">
+                                                        <label for="fx_c1-1610" onclick="checkCategory(3)">
+                                                            @Localizer["Baby"] 
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1611">
+                                                        <label for="fx_c1-1611" onclick="checkCategory(4)">
+                                                            @Localizer["kids"] 
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1612">
+                                                        <label for="fx_c1-1612" onclick="checkCategory(5)">
+                                                            @Localizer["Fit"] 
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1613">
+                                                        <label for="fx_c1-1613" onclick="checkCategory(6)">
+                                                            @Localizer["Accessories"] 
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1614">
+                                                        <label for="fx_c1-1614" onclick="checkCategory(7)">
+                                                            @Localizer["Shoes"]   
+                                                        </label>
+                                                    </div>
+                                                </li>
+
+
+
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseThree"> @Localizer["Filter_Price"]</a>
+                                </div>
+                                <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__price">
+                                            <div class="wrapper">
+
+                                                <div class="price-input">
+                                                    <div class="field">
+                                                        <span> @Localizer["Min"]</span>
+                                                        <input type="number" class="input-min" value="0">
+                                                    </div>
+                                                    <div class="separator">-</div>
+                                                    <div class="field">
+                                                        <span>@Localizer["Max"]</span>
+                                                        <input type="number" class="input-max" value="1000">
+                                                    </div>
+                                                </div>
+                                                <div class="slider">
+                                                    <div class="progress"></div>
+                                                </div>
+                                                <div class="range-input">
+                                                    <input type="range" class="range-min" min="0" max="10000" value="1" step="100">
+                                                    <input type="range" class="range-max" min="0" max="10000" value="10000" step="100">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseFour">@Localizer["Size"]</a>
+                                </div>
+                                <div id="collapseFour" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__categories">
+                                            <ul class="nice-scroll">
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1620">
+                                                        <label for="fx_c1-1620" onclick="checkSize('xs')">
+                                                            XS
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1621">
+                                                        <label for="fx_c1-1621" onclick="checkSize('s')">
+                                                            S
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1622">
+                                                        <label for="fx_c1-1622" onclick="checkSize('m')">
+                                                            M
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1623">
+                                                        <label for="fx_c1-1623" onclick="checkSize('l')">
+                                                            L
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1624">
+                                                        <label for="fx_c1-1624" onclick="checkSize('xl')">
+                                                            XL
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1625">
+                                                        <label for="fx_c1-1625" onclick="checkSize('2xl')">
+                                                            2XL
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card" style="    height: 40vh;">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseFive">@Localizer["Color"]</a>
+                                </div>
+                                <div id="collapseFive" class="collapse show" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__categories">
+                                            <ul class="nice-scroll">
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1630">
+                                                        <label for="fx_c1-1630" onclick="checkColor('black')">
+                                                            @Localizer["Black"]
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1631">
+                                                        <label for="fx_c1-1631" onclick="checkColor('gray')">
+                                                            @Localizer["Gray"]
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1632">
+                                                        <label for="fx_c1-1632" onclick="checkColor('yellow')">
+                                                            @Localizer["Yellow"]
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1633">
+                                                        <label for="fx_c1-1633" onclick="checkColor('brown')">
+                                                            @Localizer["Brown"]
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1634">
+                                                        <label for="fx_c1-1634" onclick="checkColor('orange')">
+                                                            @Localizer["Orange"]
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1635">
+                                                        <label for="fx_c1-1635" onclick="checkColor('pink')">
+                                                            @Localizer["Pink"]
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1636">
+                                                        <label for="fx_c1-1636" onclick="checkColor('blue')">
+                                                            @Localizer["Blue"]
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1637">
+                                                        <label for="fx_c1-1637" onclick="checkColor('green')">
+                                                            @Localizer["Green"]
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="custom-checkbox">
+                                                        <input type="checkbox" id="fx_c1-1638">
+                                                        <label for="fx_c1-1638" onclick="checkColor('red')">
+                                                            @Localizer["Red"]
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @* partial here  *@
+
+
+            <div class="col-lg-9" id="partial">
+
+
+                <div class="shop__product__option">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="shop__product__option__left">
+                                <p>  @Localizer["Showing"] @Model.resultDataList.Count @Localizer["results"]</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="shop__product__option__right">
+
+                                <p> @Localizer["SortByprice"] </p>
+                                <select>
+                                    <option value=""> @Localizer["Low_to_high"]</option>
+                                    <option value="">$0 - $55</option>
+                                    <option value="">$55 - $100</option>
+                                    <option value="">$100 - $150</option>
+                                    <option value="">$150 - $200</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+
+                    @foreach(var pro in Model.resultDataList.Entities)
+                    {  
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <a asp-action="Details" asp-controller="Product" asp-route-ProID="@pro.Id" style="text-decoration:none;">
+                               <div class="product__item">
+                                    <input type="hidden" id="i-@pro.Id" value="@pro.Id">
+
+                                          <div class="product__item__pic set-bg" style="background-image: url(data:image/jpg;base64,@pro.Image); max-height:400px" alt="Red dot">
+                                            <ul class="product__hover">
+                                                <li Id="FAV-LI">
+                                                   <img src="~/images/img/icon/heart.png" onclick="saveFavorites(event,@pro.Id)" id="fav-@pro.Id" alt="" />
+                                                </li>
+                                                <li>
+                                                    <img src="~/images/img/icon/quick-add-to-cart.png" alt="Add To Cart" />
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__item__text">
+                                        @if (lan == "ar")
+                                        {
+                                            <h6> @pro.ar_Title</h6>
+                                        }else{
+                                          <h6> @pro.Title</h6>
+                                        }
+
+                                            <h5>$@(pro.items.Any() ? pro.items.FirstOrDefault().Price : " no price yet ")</h5>
+                                            <div class="product__color__select">
+                                                @foreach (var item in pro.items)
+                                                {
+                                                <label for="pc-4" style="background-color:#@item.ColorHEX">
+                                                        <input type="radio" id="pc-4">
+                                                          
+                                                    </label>
+                                                }
+
+                                            </div>
+                                        </div>
+                                
+                               </div>
+                            </a>
+                        </div>
+                     
+                    }
+
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        @{
+                            int PrevPageNO = Model.CurrentPage - 1;
+                            if ((Model.CurrentPage - 1) <= 0)
+                            {
+                                PrevPageNO = 1;
+                            }
+                            int NextPageNo = Model.CurrentPage + 1;
+
+                            if (Model.CurrentPage + 1 > Model.NoOfPage())
+                            {
+                                NextPageNo = Model.NoOfPage();
+                            }
+                        }
+
+                        <div class="product__pagination">
+
+                            <a href="#" onclick="ModelFilter(@PrevPageNO)">
+                                <i class="fa fa-arrow-@arrowPerv" aria-hidden="true"></i>
+                            </a>
+
+                            @for (int i = 1; i <= Model.NoOfPage(); i++)
+                            {
+                                if ((i) == Model.CurrentPage)
+                                {
+                                    <a href="#" class="active" onclick="ModelFilter(@i)">@(i)</a>
+                                }
+                                else
+                                {
+                                    if (Model.NoOfPage() > 8)
+                                    {
+                                        <span>...</span>
+                                    }
+                                    <a href="#" onclick="ModelFilter(@i)">@(i)</a>
+                                }
+                            }
+                            <a href="#" onclick="ModelFilter(@NextPageNo)">
+                                <i class="fa fa-arrow-@arrowNext" aria-hidden="true"></i>
+                            </a>                       
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+@{
+    int subCatNumber = (int)Model.subCategory;
+}
+<script>
+    var subCategory = "";
+    subCategory = '@subCatNumber'
+
+    var searchText = "";
+    searchText = '@Model.searchTxt';
+
+
+</script>
+
+@section Scripts {
+    <script src="~/js/LocailStorage.js"></script>
+    <script src="~/js/filter.js"></script>
+}

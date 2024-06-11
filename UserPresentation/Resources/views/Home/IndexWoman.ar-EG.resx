@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ACCESSORY" xml:space="preserve">
+    <value>الإكسسوارات والأحذية</value>
+  </data>
+  <data name="Afra" xml:space="preserve">
+    <value>أنا أحب ❤️ أفرا ساراش أوغلو</value>
+  </data>
+  <data name="BEST_PRICES" xml:space="preserve">
+    <value>افضل سعر</value>
+  </data>
+  <data name="Favorite" xml:space="preserve">
+    <value> المفضله</value>
+  </data>
+  <data name="Favorite_1" xml:space="preserve">
+    <value>المفضله</value>
+  </data>
+  <data name="img1" xml:space="preserve">
+    <value>/images/women/women1_ar.webp</value>
+  </data>
+  <data name="img2" xml:space="preserve">
+    <value>/images/women/women2_ar.webp</value>
+  </data>
+  <data name="img3" xml:space="preserve">
+    <value>/images/women/women3_ar.webp</value>
+  </data>
+  <data name="img4" xml:space="preserve">
+    <value>/images/women/women_ar.webp</value>
+  </data>
+  <data name="lastV" xml:space="preserve">
+    <value>آخر زيارة</value>
+  </data>
+  <data name="looking" xml:space="preserve">
+    <value>هل كنت تبحث عن هذا؟</value>
+  </data>
+  <data name="POPULAR" xml:space="preserve">
+    <value>الفئات الاشهر</value>
+  </data>
+  <data name="Pullovers" xml:space="preserve">
+    <value>البلوفرات النسائية</value>
+  </data>
+  <data name="Ramdan" xml:space="preserve">
+    <value>بيع رمضان</value>
+  </data>
+  <data name="Skits" xml:space="preserve">
+    <value>التمثيليات</value>
+  </data>
+  <data name="Special" xml:space="preserve">
+    <value>منتجات خاصة بالنسبة لك</value>
+  </data>
+  <data name="Trousersts" xml:space="preserve">
+    <value>بنطلون نسائي</value>
+  </data>
+  <data name="Woman_Beret" xml:space="preserve">
+    <value>بيريت نسائي</value>
+  </data>
+  <data name="Woman_Collections" xml:space="preserve">
+    <value>مجموعات متواضعة</value>
+  </data>
+  <data name="Woman_Day" xml:space="preserve">
+    <value>هدايا يوم المرأة</value>
+  </data>
+  <data name="Woman_Day_gift" xml:space="preserve">
+    <value>هدايا يوم المرأة</value>
+  </data>
+  <data name="Woman_div_1" xml:space="preserve">
+    <value>مرحبًا بك في عالم الموضة النسائية حيث يتم تنسيق كل قطعة بدقة لتعزيز خزانة ملابسك. في ديفاكطو، نحن ندرك أهمية الملابس التي لا تبدو جيدة فحسب، بل تجعلك تشعر بالثقة والتمكين أيضًا. تشمل مجموعتنا من الملابس النسائية مجموعة متنوعة من الأساليب، بدءًا من الكلاسيكيات الخالدة وحتى أحدث الاتجاهات، مما يضمن وجود شيء يناسب كل الأذواق والمناسبات. استكشف مجموعتنا المختارة واكتشف كيف يمكن لملابسنا أن تحول مظهرك اليومي إلى شيء غير عادي</value>
+  </data>
+  <data name="Woman_div_2" xml:space="preserve">
+    <value>ارتقي بأسلوبك
+مرحبًا بكم في مجموعة الفساتين والأزياء النسائية! اكتشفي مجموعة مذهلة من الملابس النسائية، بدءًا من الفساتين الأنيقة إلى القمصان الأنيقة وكل شيء بينهما. في ديفاكطو، ندرك أهمية التعبير عن أسلوبك الفريد من خلال الموضة، وقد تم تصميم مجموعتنا المختارة لمساعدتك على القيام بذلك.</value>
+  </data>
+  <data name="Woman_head_1" xml:space="preserve">
+    <value>ملابس النساء</value>
+  </data>
+  <data name="Woman_head_2" xml:space="preserve">
+    <value>أزياء المرأة:</value>
+  </data>
+  <data name="Woman_Outwear" xml:space="preserve">
+    <value>ملابس خارجية نسائية</value>
+  </data>
+  <data name="Woman_Scarves" xml:space="preserve">
+    <value>الأوشحة النسائية</value>
+  </data>
+  <data name="Woman_Trousers" xml:space="preserve">
+    <value>بنطلون نسائي</value>
+  </data>
+</root>

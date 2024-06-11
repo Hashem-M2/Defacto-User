@@ -1,0 +1,62 @@
+﻿@using DTOs.Product
+@model List<ProductFavoriteDTO>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <!-- Sidebar -->
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+            <h2>Favorites</h2>
+            @if (Model.Count > 0)
+            {
+                <div id="confirmationDialog" class="confirmation-dialog" style="display: none;">
+                    <p class="confirmation-message" id="confirmation_text">PRODUCT ADDED TO CART</p>
+                    <button id="confirmButton" class="confirm-button">Go To Cart</button>
+                </div>
+
+                <div class="row">
+                    @foreach (var pro in Model)
+                    {
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" style="background-image: url(data:image/jpg;base64,@pro.Image)" alt="Product Image">
+                                    <input type="hidden" id="i-@pro.Id" value="@pro.Id"> <!-- Unique id for each input -->
+                                    <ul class="product__hover">
+                                        <li>
+                                            <a href="#" onclick="saveFavorites(event,@pro.Id)">
+                                                <img src="~/images/img/icon/Blackheart.png" id="fav-@pro.Id" alt="Add to Favorites" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a onclick="saveCartItems(event,@pro.Id)" class="add-cart">
+                                                <img src="~/images/img/icon/quick-add-to-cart.png" alt="Add To Cart" />
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <h6>@pro.Title</h6>
+                                    <h5>$@(pro.price != 0 ? pro.price : "Price not available")</h5>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="text-center mt-5">
+                    <h3>There are no products in your favorites.</h3>
+                    <button type="button" class="btn btn-dark">Start shopping</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

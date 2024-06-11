@@ -1,0 +1,148 @@
+﻿@using DTOs.ProductFilter;
+@model productsFilterWithPaging;
+@using Microsoft.AspNetCore.Mvc.Localization
+@using System.Globalization
+@inject IViewLocalizer Localizer
+@{
+    
+    string url = Context.Request.Path;
+    if (url == "/")
+    {
+        url = "/home/index";
+    }
+
+    var lan = "en";
+    var direction = "ltr";
+    var arrowNext = "right";
+    var arrowPerv = "left";
+
+
+    if (CultureInfo.CurrentCulture.Name.StartsWith("ar"))
+    {
+        lan = "ar";
+        direction = "rtl";
+        arrowNext = "left";
+        arrowPerv = "right";
+
+    }
+
+}
+
+
+    <div class="shop__product__option">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="shop__product__option__left">
+                <p>Showing : @Model.resultDataList.Count results</p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="shop__product__option__right">
+                   
+                    <p>Sort by Price:</p>
+                    <select>
+                        <option value="">Low To High</option>
+                        <option value="">$0 - $55</option>
+                        <option value="">$55 - $100</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        @foreach (var pro in Model.resultDataList.Entities)
+        {
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <a asp-action="Details" asp-controller="Product" asp-route-ProID="@pro.Id" style="text-decoration:none;">
+               
+                    <div class="product__item">
+
+                        <div class="product__item__pic set-bg" style="background-image: url(data:image/jpg;base64,@pro.Image); max-height:400px" alt="Red dot">
+                            <input type="hidden" id="i-@pro.Id" value="@pro.Id">
+                            <ul class="product__hover">
+                                <li Id="FAV-LI">
+                                    <img src="~/images/img/icon/heart.png" onclick="saveFavorites(event,@pro.Id)" id="fav-@pro.Id" alt="" />
+                                </li>
+                                <li>
+                                    <img src="~/images/img/icon/quick-add-to-cart.png" alt="Add To Cart" />
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                            @if (lan == "ar")
+                            {
+                                <h6> @pro.ar_Title</h6>
+                            }
+                            else
+                            {
+                                <h6> @pro.Title</h6>
+                            }
+
+                            <h5>$@(pro.items.Any() ? pro.items.FirstOrDefault().Price : " no price yet ")</h5>
+                            <div class="product__color__select">
+                                @foreach (var item in pro.items)
+                                {
+                                    <label for="pc-4" style="background-color:#@item.ColorHEX">
+                                        <input type="radio" id="pc-4">
+
+                                    </label>
+                                }
+
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+        }
+
+    </div>
+<div class="row">
+    <div class="col-lg-12">
+        @{
+            int PrevPageNO = Model.CurrentPage - 1;
+            if ((Model.CurrentPage - 1) <= 0)
+            {
+                PrevPageNO = 1;
+            }
+            int NextPageNo = Model.CurrentPage + 1;
+
+            if (Model.CurrentPage + 1 > Model.NoOfPage())
+            {
+                NextPageNo = Model.NoOfPage();
+            }
+        }
+
+        <div class="product__pagination">
+
+            <a href="#" onclick="ModelFilter(@PrevPageNO)">
+                <i  class="fa fa-arrow-@arrowPerv" aria-hidden="true"></i>
+            </a>
+            @for (int i = 1; i <= Model.NoOfPage(); i++)
+            {
+                if ((i) == Model.CurrentPage)
+                {
+                    <a href="#" class="active" onclick="ModelFilter(@i)">
+                        @(i)
+                    </a>
+                }
+                else
+                {
+                    if (Model.NoOfPage() > 5)
+                    {
+                        <span>...</span>
+                    }
+                    <a href="#" onclick="ModelFilter(@i)">
+                         @(i) 
+                     </a>
+                }
+            }
+            <a href="#" onclick="ModelFilter(@NextPageNo)">
+                <i class="fa fa-arrow-@arrowNext" aria-hidden="true"></i>
+            </a>
+        </div>
+
+    </div>
+</div>

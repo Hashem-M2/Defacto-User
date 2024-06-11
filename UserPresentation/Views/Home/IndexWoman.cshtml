@@ -1,0 +1,397 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@using System.Globalization
+@inject IViewLocalizer Localizer;
+@{
+    ViewData["Title"] = "Wommen";
+    var lan = "";
+    var direction = "";
+
+    if (CultureInfo.CurrentCulture.Name.StartsWith("ar"))
+    {
+        lan = "ar";
+        direction = "rtl";
+    }
+    else
+    {
+        lan = "en";
+        direction = "ltr";
+    }
+}
+
+
+
+
+<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-swipe="false">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2">
+                <img src="@Localizer["img1"]" class="d-block w-100" alt="...">
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2">
+                <img src="@Localizer["img2"]" class="d-block w-100" alt="...">
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2">
+                <img src="@Localizer["img3"]" class="d-block w-100" alt="...">
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2">
+                <img src="@Localizer["img4"]" class="d-block w-100" alt="...">
+            </a>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<div class="mt-5 mb-5">
+       <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2">
+        <img src="~/images/woman.webp" alt="" class="d-block w-100">
+       </a>
+</div>
+<div>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2">
+        <img src="~/images/woman2.webp" alt="" class="d-block w-100 mt-5 mb-5">
+    </a>
+</div>
+<div>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2">
+        <img src="~/images/woman3.webp" alt="" class="d-block w-100 mt-5 mb-5">
+    </a>
+</div>
+<div>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2">
+        <img src="~/images/woman4.webp" alt="" class="d-block w-100 mt-5 mb-5">
+    </a>
+</div>
+<div>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2">
+        <img src="~/images/woman5.webp" alt="" class="d-block w-100 mt-5 mb-5">
+    </a>
+</div>
+<div>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2">
+        <img src="~/images/woman6.webp" alt="" class="d-block w-100 mt-5 mb-5">
+    </a>
+</div>
+
+ 
+<div style="display: flex; justify-content: space-between;">
+        <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2" class="content4">
+            <img src="~/images/galwoma1.webp" alt="" >
+        </a>
+        <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2" class="content4">
+            <img src="~/images/galwoma2.webp" alt="" >
+        </a>
+        <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2" class="content4">
+            <img src="~/images/galwoma3.webp" alt="" >
+        </a>
+        <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2" class="content4">
+            <img src="~/images/galwoma4.webp" alt="" >
+        </a>
+
+</div>
+
+<div id="carouselExampleControlsNoTouching2" class="carousel slide mt-4 mb-4" data-bs-touch="false" data-bs-swipe="false">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/images/1slid.webp" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/2slide.webp" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching2" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: #818181"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching2" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: #818181"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<div>
+    <img src="~/images/womansec1.webp" alt="" class="d-block w-100 mt-5 mb-5">
+</div>
+
+<p class="mt-3 mb-3 ms-3 titles"> @Localizer["BEST_PRICES"]</p>
+
+
+<div style="display: flex; justify-content: space-between;">
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2" class="content4">
+        <img src="~/images/sec2wom1.webp" >
+    </a>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2" class="content4">
+        <img src="~/images/sec2wom2.webp" >
+    </a>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2" class="content4">
+        <img src="~/images/sec2wom3.webp" >
+    </a>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2" class="content4">
+        <img src="~/images/sec2wom4.webp" >
+    </a>
+       
+   
+</div>
+
+<div id="carouselExampleControlsNoTouching4" class="carousel slide mt-4 mb-4" data-bs-touch="false" data-bs-swipe="false">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/images/manslide4.webp" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/man20slide4.gif" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching4" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: #818181"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching4" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: #818181"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<p class="mt-3 mb-3 ms-3 titles"> @Localizer["ACCESSORY"]</p>
+
+
+<div style="display: flex; justify-content: space-between;">
+
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2" class="content4">
+        <img src="~/images/accessory1.webp">
+    </a>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2" class="content4">
+        <img src="~/images/accessory2.webp">
+    </a>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2" class="content4">
+        <img src="~/images/accessory3.webp">
+    </a>
+    <a asp-action="ProductsFilter" asp-controller="product" asp-route-subCategory="2" class="content4">
+        <img src="~/images/accessory4.webp">
+    </a>
+    
+</div>
+
+<div id="carouselExampleControlsNoTouching3" class="carousel slide mt-5 mb-5" data-bs-touch="false" data-bs-swipe="false">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/images/man1slide3.webp" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/man2slide3.webp" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/man3slide3.webp" class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching3" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: #818181"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching3" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: #818181"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<p class="mt-3 mb-3 ms-3 titles"> @Localizer["Favorite"]</p>
+@*   partial view *@
+<span class="me-5 m-3 "> @Localizer["Special"]</span>
+<span class="me-5 m-3 ">@Localizer["Favorite_1"]</span>
+<span class="me-5 m-3 "> @Localizer["lastV"]</span>
+<hr>
+
+
+<div class="m-2" style="display: flex; justify-content: space-between;">
+    <img src="~/images/manlast1.webp" style="width: 16.3%; height: auto;" class="img-fluid">
+    <img src="~/images/manlast2.webp" style="width: 16.3%; height: auto;" class="img-fluid">
+    <img src="~/images/manlast3.webp" style="width: 16.3%; height: auto;" class="img-fluid">
+    <img src="~/images/manlast4.webp" style="width: 16.3%; height: auto;" class="img-fluid">
+    <img src="~/images/manlast6.webp" style="width: 16.3%; height: auto;" class="img-fluid">
+    <img src="~/images/manlast7.webp" style="width: 16.3%; height: auto;" class="img-fluid">
+</div>
+<section>
+    <div class="searchforthis">
+        <div class="searchforthis__title">
+            <i class="icon-search" id="sear-id"></i>
+            @Localizer["looking"]
+        </div>
+        <div class="swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events">
+            <div class="swiper-wrapper">
+                @foreach (var item in ViewBag.Categories)
+                {
+                    if (lan == "ar")
+                    {
+                        <a asp-action="ProductsFilter" asp-controller="product" asp-route-catName="@item.ar_Name" class="swiper-slide swiper-slide-active">@item.ar_Name</a>
+                    }
+                    else
+                    {
+                        <a asp-action="ProductsFilter" asp-controller="product" asp-route-catName="@item.Name" class="swiper-slide swiper-slide-active">@item.Name</a>
+                    }
+                }
+               
+            </div>
+        </div>
+    </div>
+</section>
+
+@* Local storge here  *@
+<p class="mt-4 mb-3 ms-2 titles">@Localizer["POPULAR"]</p>
+
+<div id="carouselExampleIndicators5" class="carousel slide container-fluid" data-bs-ride="carousel" data-bs-interval="2500">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="row">
+                <div class="col-lg-2 col-sm-3 ms-md-2 m-1 bg-light text-dark d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm custom-font-size-md" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                    @Localizer["Woman_Outwear"]
+                </div>
+                <div class="col-lg-2 col-sm-3 m-1 ms-md-2 bg-light text-dark d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                    @Localizer["Woman_Day"] 
+                </div>
+                <div class="col-lg-2 col-sm-3 m-1 ms-md-2 bg-light text-dark d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                    @Localizer["Woman_Beret"]
+                </div>
+                <div class="col-lg-2 col-sm-3 m-1 ms-md-2 bg-light text-dark d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                     @Localizer["Woman_Trousers"]
+                </div>
+                <div class="col-lg-2 col-sm-3 m-1 ms-md-2 bg-light text-dark d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                     @Localizer["Woman_Collections"]
+                </div>
+                <div class="col-lg-2 col-sm-3 m-1 ms-md-2 bg-light text-dark d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                     @Localizer["Woman_Scarves"]
+                </div>
+
+            </div>
+        </div>
+        <div class="carousel-item">
+
+            <div class="row">
+
+                <div class=" col-lg-2 m-1 bg-light text-dark ms-md-2 d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                     @Localizer["Ramdan"]
+                </div>
+                <div class="col-lg-2 m-1 bg-light text-dark ms-md-2 d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                    @Localizer["Pullovers"]
+                </div>
+                <div class="col-lg-2 m-1 bg-light text-dark ms-md-2  d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                    @Localizer["Afra"]
+                </div>
+                <div class="col-lg-2 m-1 bg-light text-dark ms-md-2 d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                      @Localizer["Skits"]
+                </div>
+                <div class="col-lg-2 m-1 bg-light text-dark ms-md-2 d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                     @Localizer["Trousersts"]
+                </div>
+                <div class="col-lg-2 m-1 bg-light text-dark ms-md-2 d-flex align-items-center justify-content-center custom-font-size custom-font-size-sm" style="width: 14.5vw; height: 15vh; text-decoration: none; line-height: 1.5rem;">
+                    @Localizer["Woman_Day_gift"]
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+<div class="containerWomanDetails me-3 ms-3 p-3 mt-4" style="background-color:rgb(233,232,234)">
+        <div>
+        <h4 class="mb-2"> @Localizer["Woman_head_1"]</h4>
+        <p id="description">
+            @Localizer["Woman_div_1"]
+        </p>
+        </div>
+    <div>
+        <h4 class="mb-2">@Localizer["Woman_head_2"]</h4>
+        <p id="description">
+            @Localizer["Woman_div_2"]
+        </p>
+    </div>
+
+    <div>
+        <h4 class="mb-2">Women's Dresses: Effortless Elegance</h4>
+        <p id="description">
+            Step into elegance with our diverse collection of women's dresses. 
+            From sophisticated evening gowns to casual sundresses, we have something for
+            every occasion. Whether you're attending a formal event or simply want
+            to elevate your everyday look, our range of women's dresses offers versatility and style.
+        </p>
+    </div>
+    <div>
+        <h4 class="mb-2">Women's Clothes Sale: Unbeatable Deals</h4>
+        <p id="description">
+            Who says you have to break the bank to look fabulous? Explore our women's clothes 
+            sale section and discover unbeatable deals on trendy apparel. Shop to your heart's 
+            content without worrying about your budget. With discounts
+            on a wide range of clothing items, updating your wardrobe has never been more affordable.
+        </p>
+    </div>
+
+ 
+    <div>
+        <h4 class="mb-2">Women's Clothing Stores: Your One-Stop Shop</h4>
+        <p id="description">
+            Experience the ultimate shopping convenience with our online women's clothing store. 
+            Browse our extensive collection from the comfort of your own home and discover the 
+            latest trends at your fingertips.
+            With easy navigation and secure checkout, shopping for women's clothing has never been easier.
+        </p>
+    </div>
+
+    <div>
+        <h4 class="mb-2">Women's Casual Comfort</h4>
+        <p id="description">
+            Stay comfortable and stylish with our collection of women's t-shirts. Whether you're running errands or lounging at home, our soft and breathable t-shirts are the perfect choice for any casual occasion. Available in a variety of colors and designs, they're a wardrobe essential for every woman.
+        </p>
+    </div>
+    <div>
+        <h4 class="mb-2">Women Sporty Elegance</h4>
+        <p id="description">
+            Achieve a sporty yet sophisticated look with our women's polo shirts. Made from high-quality materials and featuring timeless designs, our polo shirts offer both style and comfort. Whether you're hitting the golf course or enjoying a weekend outing, our polo shirts are a versatile addition to any wardrobe.
+        </p>
+    </div>
+    <div>
+        <h4 class="mb-2">Women's Effortless Sophistication</h4>
+        <p id="description">
+            Upgrade your wardrobe with our collection of women's trousers. From tailored trousers for the office to relaxed joggers for weekends, we offer a wide range of styles to suit every preference. With attention to detail and impeccable craftsmanship, our trousers exude effortless sophistication
+        </p>
+    </div>
+    
+    <div>
+        <h4 class="mb-2">Women Power Dressing</h4>
+        <p id="description">
+            Make a statement with our collection of women's blazers. Whether you're dressing for the boardroom or a night out, our blazers add polish and sophistication to any outfit. With a variety of colors and cuts to choose from, you're sure to find the perfect blazer to elevate your look.
+        </p>
+    </div>
+
+    <div>
+        <h4 class="mb-2">Women's Apparel: Style Redefined</h4>
+        <p id="description">
+            At DeFacto, we believe that every woman deserves to feel confident and beautiful in her clothing. That's why we offer a curated selection of women's apparel that combines style, comfort, and quality. Shop with us today and discover a new level of style redefined.
+        </p>
+    </div>
+
+    <div>
+        <h4 class="mb-2">Discover the Convenience of Women's Online Clothing Stores</h4>
+        <p id="description">
+            Experience the ultimate convenience of shopping for women's fashion at our online clothing store. With just a few clicks, you can browse through our extensive collection of coats and other apparel, finding the perfect pieces to elevate your style. Enjoy the ease of shopping from the comfort of your own home and take advantage of our secure checkout process for a hassle-free shopping experience. At DeFacto, we bring the latest trends right to your fingertips, making it easier than ever to stay stylish all year round.
+        </p>
+
+    </div>
+</div>
+

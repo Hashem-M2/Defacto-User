@@ -1,0 +1,67 @@
+﻿@using DTO_s.Product;
+@model ProductDTO;
+
+@section Styles {
+    
+    <link href="~/css/productdetails.css" rel="stylesheet" />
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-6">
+                    <img src="data:image/jpg;base64,@Model.ImagesArr[0]" class="img-fluid" alt="">
+                </div>
+                <div class="col-sm-6">
+                    <img src="data:image/jpg;base64,@Model.ImagesArr[1]" class="img-fluid" alt="" style="margin-left:-20px;">
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col-sm-6">
+                    <img src="data:image/jpg;base64,@Model.ImagesArr[2]" class="img-fluid" alt="">
+                </div>
+                <div class="col-sm-6">
+                    <img src="data:image/jpg;base64,@Model.ImagesArr[3]" class="img-fluid" alt="" style="margin-left:-20px;">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="content">
+                <pre> @Model.Title <i class="fa fa-heart"></i><br> @Model.CategoryName</pre>
+                <pre id="price">@* @Model.items.FirstOrDefault().Price   *@  <i class="fa fa-share"></i></pre>
+                <h5>Product Code: @Model.Code </h5>
+
+            </div>
+            <div class="fixed-column">
+                <h4>Rate</h4>  @* rate here  *@
+                <div style="margin-left: 20px;">
+                  
+                    <pre>Size Options        Find My Size-></pre>
+                    <pre>XS    S    M    L    XL    XXL</pre>
+                </div> 
+                <div style="margin-left: 20px;">
+                  
+                    <pre>Color Options        Find My Size-></pre>
+                    <pre>black red green </pre>
+                </div>
+                <div class="d-grid gap-2 col-6">
+                    <button class="btn btn-cart " type="button"> ADD TO CART </button>
+                </div>
+                <br>
+                <p class="border p-3" style="margin-left: 20px;">
+                    Raffle Campaign Terms and Conditions Click here for more details
+                </p>
+                <p class="border p-3" style="margin-left: 20px;">
+                    QNB ALAHLI Credit Cards Installment 6 Months |0% Interest |0 Fees
+                </p>
+                <h4 style="margin-left: 20px;">Product Information</h4>
+                <ul style="margin-left: 20px;">
+                    <li>Model Measurements:Height: 1.73Bust: 81Waist: 61Hips: 89</li>
+                    <li>Sample size: M</li>
+                    <li>Main Fabric Content : Cotton 100%</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
